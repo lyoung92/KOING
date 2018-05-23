@@ -1,0 +1,15 @@
+package koing.kosta180.domain;
+
+public class MemberVO {
+	private String id;
+	private String pw;
+	private String m_name;
+	private String m_gender;
+	private int m_ssno;
+	private String m_pno;
+	private String m_address;
+	private String m_location;
+	private String m_menu;
+	private boolean m_agree;
+	private String m_grade;
+}

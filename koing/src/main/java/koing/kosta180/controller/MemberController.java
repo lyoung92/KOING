@@ -1,0 +1,62 @@
+package koing.kosta180.controller;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import koing.kosta180.domain.MemberVO;
+import koing.kosta180.service.MemberService;
+
+@Controller
+@RequestMapping("/bootstrap/*")
+public class MemberController {
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
+	@Inject
+	private MemberService service;
+	
+	@RequestMapping(value="/register", method=RequestMethod.GET)
+	public void registerGet(MemberVO member, Model model) throws Exception{
+		logger.info("register get...................");
+	}
+	
+	@RequestMapping(value="/about", method=RequestMethod.GET)
+	public void aboutGET(MemberVO member, Model model) throws Exception{
+		logger.info("about get...................");
+	}
+	
+	@RequestMapping(value="/blog1", method=RequestMethod.GET)
+	public void blog1Get(MemberVO member, Model model) throws Exception{
+		logger.info("blog1 get...................");
+	}
+	
+	@RequestMapping(value="/blog2", method=RequestMethod.GET)
+	public void blog2Get(MemberVO member, Model model) throws Exception{
+		logger.info("blog2 get...................");
+	}
+	
+	@RequestMapping(value="/blog3", method=RequestMethod.GET)
+	public void blog3Get(MemberVO member, Model model) throws Exception{
+		logger.info("blog3 get...................");
+	}
+	
+	@RequestMapping(value="/contact", method=RequestMethod.GET)
+	public void contactGet(MemberVO member, Model model) throws Exception{
+		logger.info("contact get...................");
+	}
+	
+	@RequestMapping(value="/index", method=RequestMethod.GET)
+	public void indexGet(MemberVO member, Model model) throws Exception{
+		logger.info("index get...................");
+	}
+	
+	@RequestMapping(value="/single", method=RequestMethod.GET)
+	public void singleGet(MemberVO member, Model model) throws Exception{
+		logger.info("single get...................");
+	}
+}
