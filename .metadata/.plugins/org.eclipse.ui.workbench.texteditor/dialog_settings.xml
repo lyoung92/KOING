@@ -2,18 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value=".jsp" key="selection"/>
+		<item value="banner" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value=".html"/>
-			<item value="html"/>
-			<item value="jdk"/>
-			<item value="junit"/>
+			<item value="banner"/>
+			<item value="jquery"/>
+			<item value="banner-inner"/>
+			<item value="top_up"/>
+			<item value="png"/>
+			<item value="href"/>
+			<item value="src"/>
+			<item value="img"/>
 		</list>
 		<list key="replacehistory">
+			<item value="&quot;/images"/>
 			<item value=".jsp"/>
 		</list>
 	</section>

@@ -1,3 +1,12 @@
 
 5월 23, 2018 20:25:00.87 NEW SESSION
 5월 23, 2018 20:25:00.87 [6364:8096:0523/202500.872:ERROR:in_progress_cache_impl.cc(93)] Could not read download entries from file because there was a read failure.
+
+5월 24, 2018 15:44:11.87 NEW SESSION
+5월 24, 2018 15:44:11.87 [5968:6820:0524/154411.872:ERROR:in_progress_cache_impl.cc(93)] Could not read download entries from file because there was a read failure.
+5월 24, 2018 16:21:02.58 Unable to read VR Path Registry from C:\Users\kosta\AppData\Local\openvr\openvrpaths.vrpath
+5월 24, 2018 16:21:02.58 [5968:3580:0524/162102.584:ERROR:connection.cc(1888)] Passwords sqlite error 2067, errno 0: UNIQUE constraint failed: logins.origin_url, logins.username_element, logins.username_value, logins.password_element, logins.signon_realm, sql: INSERT INTO logins (origin_url, action_url, username_element, username_value, password_element, password_value, submit_element, signon_realm, preferred, date_created, blacklisted_by_user, scheme, password_type, times_used, form_data, date_synced, display_name, icon_url, federation_url, skip_zero_click, generation_upload_status, possible_username_pairs) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+5월 24, 2018 16:21:02.86 [5968:3580:0524/162102.862:ERROR:connection.cc(1888)] Passwords sqlite error 2067, errno 0: UNIQUE constraint failed: logins.origin_url, logins.username_element, logins.username_value, logins.password_element, logins.signon_realm, sql: INSERT INTO logins (origin_url, action_url, username_element, username_value, password_element, password_value, submit_element, signon_realm, preferred, date_created, blacklisted_by_user, scheme, password_type, times_used, form_data, date_synced, display_name, icon_url, federation_url, skip_zero_click, generation_upload_status, possible_username_pairs) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+5월 28, 2018 09:14:16.14 NEW SESSION
+5월 28, 2018 09:14:16.14 [3056:1736:0528/091416.137:ERROR:in_progress_cache_impl.cc(93)] Could not read download entries from file because there was a read failure.

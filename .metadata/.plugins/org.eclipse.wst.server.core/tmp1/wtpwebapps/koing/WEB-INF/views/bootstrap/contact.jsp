@@ -41,17 +41,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="top-bar_sub_w3layouts container-fluid">
 			<div class="row">
 				<div class="col-md-4 logo text-left">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="index">
 						<i class="fab fa-linode"></i> Weblog</a>
 				</div>
 				<div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
 					<span>Welcome Back!</span>
 					<span class="mx-lg-4 mx-md-2  mx-1">
-						<a href="login.html">
+						<a href="login">
 							<i class="fas fa-lock"></i> Sign In</a>
 					</span>
 					<span>
-						<a href="register.html">
+						<a href="register">
 							<i class="far fa-user"></i> Register</a>
 					</span>
 				</div>
@@ -97,12 +97,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home
+							<a class="nav-link" href="index">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
+							<a class="nav-link" href="about">About</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -111,16 +111,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#"></a>
-								<a class="dropdown-item" href="blog1.html">Standard Blog</a>
+								<a class="dropdown-item" href="blog1">Standard Blog</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="blog2.html">2 Column Blog</a>
+								<a class="dropdown-item" href="blog2">2 Column Blog</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="blog3.html">3 Column Blog</a>
+								<a class="dropdown-item" href="blog3">3 Column Blog</a>
 
 							</div>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="contact.html">Contact</a>
+							<a class="nav-link" href="contact">Contact</a>
 						</li>
 
 					</ul>
@@ -145,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
-			<a href="index.html">Home</a>
+			<a href="index">Home</a>
 		</li>
 		<li class="breadcrumb-item active">Contact</li>
 	</ol>
@@ -249,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3>About US</h3>
 					<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. lacinia eget consectetur sed, convallis at tellus..</p>
 					<div class="read">
-						<a href="single.html" class="btn btn-primary read-m">Read More</a>
+						<a href="single" class="btn btn-primary read-m">Read More</a>
 					</div>
 				</div>
 				<div class="col-lg-4 footer-grid-agileits-w3ls text-left">
@@ -258,14 +258,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3>Latest Posts</h3>
 						<div class="blog-grids row mb-3">
 							<div class="col-md-5 blog-grid-left">
-								<a href="single.html">
-									<img src="images/4.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/4.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="col-md-7 blog-grid-right">
 
 								<h5>
-									<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 								</h5>
 								<div class="sub-meta">
 									<span>
@@ -276,14 +276,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="blog-grids row mb-3">
 							<div class="col-md-5 blog-grid-left">
-								<a href="single.html">
-									<img src="images/5.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/5.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="col-md-7 blog-grid-right">
 
 								<h5>
-									<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 								</h5>
 								<div class="sub-meta">
 									<span>
@@ -294,14 +294,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="blog-grids row mb-3">
 							<div class="col-md-5 blog-grid-left">
-								<a href="single.html">
-									<img src="images/6.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/6.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="col-md-7 blog-grid-right">
 
 								<h5>
-									<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 								</h5>
 								<div class="sub-meta">
 									<span>
@@ -376,11 +376,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</footer>
 	<!---->
 	<!-- js -->
-	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="/js/jquery-2.2.3.min.js"></script>
 	<!-- //js -->
 	<!--/ start-smoth-scrolling -->
-	<script src="js/move-top.js"></script>
-	<script src="js/easing.js"></script>
+	<script src="/js/move-top.js"></script>
+	<script src="/js/easing.js"></script>
 	<script>
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -415,7 +415,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 
 	<!-- //Custom-JavaScript-File-Links -->
-	<script src="js/bootstrap.js"></script>
+	<script src="/js/bootstrap.js"></script>
 
 
 </body>

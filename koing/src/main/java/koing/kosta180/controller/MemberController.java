@@ -1,5 +1,7 @@
 package koing.kosta180.controller;
 
+import java.util.concurrent.ExecutionException;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -59,4 +61,11 @@ public class MemberController {
 	public void singleGet(MemberVO member, Model model) throws Exception{
 		logger.info("single get...................");
 	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public void loginGet(MemberVO member, Model model) throws Exception{
+		logger.info("login get");
+	}
+
+	
 }

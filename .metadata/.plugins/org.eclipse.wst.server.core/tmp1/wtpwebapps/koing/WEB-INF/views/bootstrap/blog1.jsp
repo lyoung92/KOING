@@ -41,17 +41,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="top-bar_sub_w3layouts container-fluid">
 			<div class="row">
 				<div class="col-md-4 logo text-left">
-					<a class="navbar-brand" href="index.jsp">
+					<a class="navbar-brand" href="index">
 						<i class="fab fa-linode"></i> Weblog</a>
 				</div>
 				<div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
 					<span>Welcome Back!</span>
 					<span class="mx-lg-4 mx-md-2  mx-1">
-						<a href="login.jsp">
+						<a href="login">
 							<i class="fas fa-lock"></i> Sign In</a>
 					</span>
 					<span>
-						<a href="register.jsp">
+						<a href="register">
 							<i class="far fa-user"></i> Register</a>
 					</span>
 				</div>
@@ -96,12 +96,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="index.jsp">Home
+							<a class="nav-link" href="index">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="about.jsp">About</a>
+							<a class="nav-link" href="about">About</a>
 						</li>
 						<li class="nav-item dropdown active">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -110,16 +110,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#"></a>
-								<a class="dropdown-item" href="blog1.jsp">Standard Blog</a>
+								<a class="dropdown-item" href="blog1">Standard Blog</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="blog2.jsp">2 Column Blog</a>
+								<a class="dropdown-item" href="blog2">2 Column Blog</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="blog3.jsp">3 Column Blog</a>
+								<a class="dropdown-item" href="blog3">3 Column Blog</a>
 
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="contact.jsp">Contact</a>
+							<a class="nav-link" href="contact">Contact</a>
 						</li>
 
 					</ul>
@@ -143,7 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">
-			<a href="index.jsp">Home</a>
+			<a href="index">Home</a>
 		</li>
 		<li class="breadcrumb-item active">Blog1</li>
 	</ol>
@@ -159,8 +159,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<article class="blog-grid-top">
 						<div class="b-grid-top">
 							<div class="blog_info_left_grid">
-								<a href="single.jsp">
-									<img src="images/b1.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/b1.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="blog-info-middle">
@@ -183,18 +183,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 
 						<h3>
-							<a href="single.jsp">Amet consectetur adipisicing </a>
+							<a href="single">Amet consectetur adipisicing </a>
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
 							aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco labor nisi ut aliquip exea commodo consequat duis
 							aute irudre dolor in elit sed uta labore dolore reprehender</p>
-						<a href="single.jsp" class="btn btn-primary read-m">Read More</a>
+						<a href="single" class="btn btn-primary read-m">Read More</a>
 					</article>
 					<article class="blog-grid-top my-5">
 						<div class="b-grid-top">
 							<div class="blog_info_left_grid">
-								<a href="single.jsp">
-									<img src="images/b4.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/b4.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="blog-info-middle">
@@ -217,18 +217,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 
 						<h3>
-							<a href="single.jsp">Amet consectetur adipisicing </a>
+							<a href="single">Amet consectetur adipisicing </a>
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
 							aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco labor nisi ut aliquip exea commodo consequat duis
 							aute irudre dolor in elit sed uta labore dolore reprehender</p>
-						<a href="single.jsp" class="btn btn-primary read-m">Read More</a>
+						<a href="single" class="btn btn-primary read-m">Read More</a>
 					</article>
 					<article class="blog-grid-top mb-4">
 						<div class="b-grid-top">
 							<div class="blog_info_left_grid">
-								<a href="single.jsp">
-									<img src="images/b1.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/b1.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="blog-info-middle">
@@ -251,12 +251,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 
 						<h3>
-							<a href="single.jsp">Amet consectetur adipisicing </a>
+							<a href="single">Amet consectetur adipisicing </a>
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
 							aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco labor nisi ut aliquip exea commodo consequat duis
 							aute irudre dolor in elit sed uta labore dolore reprehender</p>
-						<a href="single.jsp" class="btn btn-primary read-m">Read More</a>
+						<a href="single" class="btn btn-primary read-m">Read More</a>
 					</article>
 					<nav aria-label="Page navigation example">
 						<ul class="pagination justify-content-left">
@@ -283,7 +283,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
 					<div class="right-blog-info text-left">
 						<div class="tech-btm">
-							<img src="images/banner1.jpg" class="img-fluid" alt="">
+							<img src="/images/banner1.jpg" class="img-fluid" alt="">
 						</div>
 						<div class="tech-btm">
 							<h4>Sign up to our newsletter</h4>
@@ -316,14 +316,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<div class="blog-grids row mb-3">
 								<div class="col-md-5 blog-grid-left">
-									<a href="single.jsp">
-										<img src="images/1.jpg" class="img-fluid" alt="">
+									<a href="single">
+										<img src="/images/1.jpg" class="img-fluid" alt="">
 									</a>
 								</div>
 								<div class="col-md-7 blog-grid-right">
 
 									<h5>
-										<a href="single.jsp">Pellentesque dui, non felis. Maecenas male non felis </a>
+										<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 									</h5>
 									<div class="sub-meta">
 										<span>
@@ -334,13 +334,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="blog-grids row mb-3">
 								<div class="col-md-5 blog-grid-left">
-									<a href="single.jsp">
-										<img src="images/6.jpg" class="img-fluid" alt="">
+									<a href="single">
+										<img src="/images/6.jpg" class="img-fluid" alt="">
 									</a>
 								</div>
 								<div class="col-md-7 blog-grid-right">
 									<h5>
-										<a href="single.jsp">Pellentesque dui, non felis. Maecenas male non felis </a>
+										<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 									</h5>
 									<div class="sub-meta">
 										<span>
@@ -377,14 +377,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h4>Recent Post</h4>
 							<div class="blog-grids">
 								<div class="blog-grid-left">
-									<a href="single.jsp">
-										<img src="images/b1.jpg" class="img-fluid" alt="">
+									<a href="single">
+										<img src="/images/b1.jpg" class="img-fluid" alt="">
 									</a>
 								</div>
 								<div class="blog-grid-right">
 
 									<h5>
-										<a href="single.jsp">Pellentesque dui, non felis. Maecenas male</a>
+										<a href="single">Pellentesque dui, non felis. Maecenas male</a>
 									</h5>
 								</div>
 
@@ -424,14 +424,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<div class="blog-grids row mb-3 text-left">
 								<div class="col-md-5 blog-grid-left">
-									<a href="single.jsp">
-										<img src="images/1.jpg" class="img-fluid" alt="">
+									<a href="single">
+										<img src="/images/1.jpg" class="img-fluid" alt="">
 									</a>
 								</div>
 								<div class="col-md-7 blog-grid-right">
 
 									<h5>
-										<a href="single.jsp">Pellentesque dui, non felis. Maecenas male non felis </a>
+										<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 									</h5>
 									<div class="sub-meta">
 										<span>
@@ -442,14 +442,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="blog-grids row mb-3 text-left">
 								<div class="col-md-5 blog-grid-left">
-									<a href="single.jsp">
-										<img src="images/5.jpg" class="img-fluid" alt="">
+									<a href="single">
+										<img src="/images/5.jpg" class="img-fluid" alt="">
 									</a>
 								</div>
 								<div class="col-md-7 blog-grid-right">
 
 									<h5>
-										<a href="single.jsp">Pellentesque dui, non felis. Maecenas male non felis </a>
+										<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 									</h5>
 									<div class="sub-meta">
 										<span>
@@ -460,13 +460,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="blog-grids row mb-3 text-left">
 								<div class="col-md-5 blog-grid-left">
-									<a href="single.jsp">
-										<img src="images/3.jpg" class="img-fluid" alt="">
+									<a href="single">
+										<img src="/images/3.jpg" class="img-fluid" alt="">
 									</a>
 								</div>
 								<div class="col-md-7 blog-grid-right">
 									<h5>
-										<a href="single.jsp">Pellentesque dui, non felis. Maecenas male non felis </a>
+										<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 									</h5>
 									<div class="sub-meta">
 										<span>
@@ -492,7 +492,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3>About US</h3>
 					<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. lacinia eget consectetur sed, convallis at tellus..</p>
 					<div class="read">
-						<a href="single.jsp" class="btn btn-primary read-m">Read More</a>
+						<a href="single" class="btn btn-primary read-m">Read More</a>
 					</div>
 				</div>
 				<div class="col-lg-4 footer-grid-agileits-w3ls text-left">
@@ -501,14 +501,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3>Latest Posts</h3>
 						<div class="blog-grids row mb-3">
 							<div class="col-md-5 blog-grid-left">
-								<a href="single.jsp">
-									<img src="images/4.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/4.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="col-md-7 blog-grid-right">
 
 								<h5>
-									<a href="single.jsp">Pellentesque dui, non felis. Maecenas male non felis </a>
+									<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 								</h5>
 								<div class="sub-meta">
 									<span>
@@ -519,14 +519,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="blog-grids row mb-3">
 							<div class="col-md-5 blog-grid-left">
-								<a href="single.jsp">
-									<img src="images/5.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/5.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="col-md-7 blog-grid-right">
 
 								<h5>
-									<a href="single.jsp">Pellentesque dui, non felis. Maecenas male non felis </a>
+									<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 								</h5>
 								<div class="sub-meta">
 									<span>
@@ -537,14 +537,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="blog-grids row mb-3">
 							<div class="col-md-5 blog-grid-left">
-								<a href="single.jsp">
-									<img src="images/6.jpg" class="img-fluid" alt="">
+								<a href="single">
+									<img src="/images/6.jpg" class="img-fluid" alt="">
 								</a>
 							</div>
 							<div class="col-md-7 blog-grid-right">
 
 								<h5>
-									<a href="single.jsp">Pellentesque dui, non felis. Maecenas male non felis </a>
+									<a href="single">Pellentesque dui, non felis. Maecenas male non felis </a>
 								</h5>
 								<div class="sub-meta">
 									<span>
@@ -620,11 +620,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!---->
 
 	<!-- js -->
-	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="/js/jquery-2.2.3.min.js"></script>
 	<!-- //js -->
 	<!--/ start-smoth-scrolling -->
-	<script src="js/move-top.js"></script>
-	<script src="js/easing.js"></script>
+	<script src="/js/move-top.js"></script>
+	<script src="/js/easing.js"></script>
 	<script>
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -659,7 +659,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 
 	<!-- //Custom-JavaScript-File-Links -->
-	<script src="js/bootstrap.js"></script>
+	<script src="/js/bootstrap.js"></script>
 
 
 </body>
