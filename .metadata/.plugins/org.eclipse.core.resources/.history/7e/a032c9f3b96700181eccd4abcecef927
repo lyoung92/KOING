@@ -1,0 +1,76 @@
+package koing.kosta180.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import koing.kosta180.domain.MemberVO;
+import koing.kosta180.domain.StoreVO;
+import koing.kosta180.persistence.RecommendDAO;
+
+@Service
+public class RecommendServiceImpl implements RecommendService {
+
+	@Inject
+	private RecommendDAO dao;
+
+	private static final Logger logger = LoggerFactory.getLogger(RecommendServiceImpl.class);
+
+	@Override
+	public List<StoreVO> mostLikeStoreList() throws Exception {
+		List<StoreVO> mostLikeStoreList = dao.mostLikeStoreList();
+		return mostLikeStoreList;
+	}
+
+	@Override
+	public StoreVO preferredStore(MemberVO member) throws Exception {
+		// TODO Auto-generated method stub
+		logger.info("preferredStore");
+		StoreVO preferredStore = new StoreVO();
+
+		//우선순위에 맞는 상점목록을 담을 리스트
+		List<String> preferredStoreList = dao.mostReserveStore(member);
+		
+		for(int i=0; i<preferredStoreList.size(); i++){
+			System.out.println("예약횟수 index_"+i+" : " + preferredStoreList.get(i).getS_name() + preferredStoreList.size());
+		}
+
+		// 1순위 예약횟수
+		if (preferredStoreList.size()==1) {
+			System.out.println("if : "+preferredStoreList.size());
+			preferredStore = preferredStoreList.get(0);
+		}else { // 예약이 가장 많은 상점이 여러개 일때
+			System.out.println("else : "+preferredStoreList.size());
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("mostReserveStore", preferredStoreList);
+			map.put("id", member.getId());
+			
+			preferredStoreList = dao.mostReviewStore(map);
+			System.out.println("mostReviewStore size : " + preferredStoreList.size());
+			//test
+			for(int i=0; i<preferredStoreList.size(); i++){
+				System.out.println("리뷰평점 index_"+i+" : " + preferredStoreList.get(i).getS_name());
+			}
+			//2순위 평점
+			if(preferredStoreList.size()==1){
+				preferredStore = preferredStoreList.get(0);
+			}
+		}
+
+		return preferredStore;
+	}
+
+	public boolean sizeCheck(List<StoreVO> list){
+		if(list.size() == 1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+}

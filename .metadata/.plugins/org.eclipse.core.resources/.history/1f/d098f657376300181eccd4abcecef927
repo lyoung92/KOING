@@ -1,0 +1,133 @@
+<%@page import="koing.kosta180.domain.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Koing 회원가입</title>
+<link rel="stylesheet" href="../css/join.css">
+
+<script type="text/javascript">
+    
+        // 회원가입 화면의 입력값들을 검사한다.
+	function checkValue() {
+        	var form = document.join_form;
+        	if (form.pw.value != "") {
+        		if (form.pw.value.length < 6) {
+        			alert("비밀번호를 6자리 이상으로 설정하세요.");
+            		return false;
+            		}
+        		}
+
+      // 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+      		if (form.pw.value != form.pw2.value) {
+        		  alert("비밀번호를 동일하게 입력하세요.");
+        	   	  return false;
+ 		      }
+
+
+      if (isNaN(form.m_pno.value)) {
+         alert("전화번호는 - 제외한 숫자만 입력해주세요.");
+         return false;
+      }
+
+
+   }
+</script>
+
+</head>
+<body>
+	<jsp:include page="../layout/header.jsp" />
+	<div id="content_wrap">
+		<div class="join">
+			<form name="join_form" id="join_form" method="post"
+				onsubmit="return checkValue()">
+				<p class="title">회원정보수정</p>
+
+				<p class="subtitle">정보입력</p>
+				<div class="basic">
+
+					<div class="notChange">
+					<div class="subtitle">회원ID</div>
+					<div>${sessionMember.id }</div>
+						 <%--  <input type="text" class="subtitle" value="회원ID">
+						  <input type="text" class="notChange" name="id" id="id"
+                              value="${sessionMember.id }" readonly="readonly"> --%>
+					</div>
+
+
+					<div class="password divide">
+						<input type="password" name="pw" placeholder="비밀번호 (6자이상)"
+							maxlength="30"> <input type="password" name="pw2"
+							placeholder="비밀번호 재확인" maxlength="30">
+					</div>
+
+					<div>
+						<input type="text" name="m_name" placeholder="이름">
+					</div>
+
+					<div class="gender divide">
+						<input type="radio" name="m_gender" value="M" id="gender_male"><label
+							for="gender_male">남자</label> <input type="radio" name="m_gender"
+							value="F" id="gender_female"><label for="gender_female">여자</label>
+					</div>
+
+					<div class="ssno divide">
+						<input type="text" name="m_ssno" placeholder="생년월일6자리"
+							maxlength="6"> <input type="text" name="m_ssno2"
+							placeholder="주민등록번호 뒤 맨 앞자리" maxlength="1">
+					</div>
+
+					<div>
+						<input type="text" name="m_pno" placeholder="핸드폰번호">
+					</div>
+
+					<div>
+						<input type="text" name="m_address" placeholder="주소">
+					</div>
+
+					<div>
+						<input type="text" name="m_address2" placeholder="세부주소">
+					</div>
+
+
+
+
+
+
+					<p class="subtitle">약관동의</p>
+					<div class="clause">
+
+						<input type="checkbox" id="allCheck" onclick="check()"><label
+							for="allCheck">전체 이용약관에 동의합니다.</label>
+						<hr>
+						<input type="checkbox" name="m_agree" id="agree_1"><label
+							for="agree_1">만 14세 이상입니다. <span>(필수)</span></label> <input
+							type="checkbox" name="m_agree" id="agree_2"><label
+							for="agree_2">이용약관 <span>(필수)</span></label>
+						<iframe src="../static/tos.html"></iframe>
+
+						<input type="checkbox" name="m_agree" id="agree_3"><label
+							for="agree_3">개인정보취급방침 <span>(필수)</span></label>
+						<iframe src="../static/privacy.html"></iframe>
+
+
+						<input type="checkbox" name="m_agree" id="m_agree"
+							data-target="marketing" value='true'><label for="m_agree">
+							Social 매칭 서비스 동의 <span class="optional">(선택)</span>
+						</label>
+						<p>Social Dining을 위한 정보수집에 동의해주세요.</p>
+
+					</div>
+					<input type="submit" class="complete" tabindex="-1" value="다음">
+				</div>
+			</form>
+		</div>
+	</div>
+	<jsp:include page="../layout/footer.jsp" />
+</body>
+
+</html>

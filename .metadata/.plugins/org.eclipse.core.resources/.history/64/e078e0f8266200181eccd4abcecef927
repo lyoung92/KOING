@@ -1,0 +1,46 @@
+package koing.kosta180.controller;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@Controller
+@RequestMapping("/main/*")
+public class MainController {
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+	
+	@RequestMapping(value="/main", method=RequestMethod.GET)
+	public void mainGet(Model model) throws Exception{
+		logger.info("main get...................");
+	}
+	
+	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
+	public String remove(@RequestParam("id") String id, @RequestParam("pw") String pw, RedirectAttributes rttr) throws Exception {
+
+		service.remove(bno);
+
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+
+		rttr.addFlashAttribute("msg", "SUCCESS");
+
+		return "redirect:/sboard/list";
+	}
+	
+	@RequestMapping(value="/main", method=RequestMethod.POST)
+	public String mainPost(@RequestParam("bno") int bno, SearchCriteria cri, RedirectAttributes rttr) throws Exception{
+		
+		return "";
+	}
+	
+	
+}

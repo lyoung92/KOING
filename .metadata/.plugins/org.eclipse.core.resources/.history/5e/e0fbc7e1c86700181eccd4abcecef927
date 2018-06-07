@@ -1,0 +1,88 @@
+package koing.kosta180.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import koing.kosta180.domain.MemberVO;
+import koing.kosta180.domain.StoreVO;
+import koing.kosta180.persistence.RecommendDAO;
+
+@Service
+public class RecommendServiceImpl implements RecommendService {
+
+	@Inject
+	private RecommendDAO dao;
+
+	private static final Logger logger = LoggerFactory.getLogger(RecommendServiceImpl.class);
+
+	@Override
+	public List<StoreVO> mostLikeStoreList() throws Exception {
+		List<StoreVO> mostLikeStoreList = dao.mostLikeStoreList();
+		return mostLikeStoreList;
+	}
+
+	@Override
+	public StoreVO preferredStore(MemberVO member) throws Exception {
+		// TODO Auto-generated method stub
+		logger.info("preferredStore");
+		StoreVO preferredStore = new StoreVO();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+
+		// 1순위 예약횟수
+		List<StoreVO> mostReserveStore = dao.mostReserveStore(member);
+
+		if (sizeCheck(mostReserveStore)) {
+			preferredStore = mostReserveStore.get(0);
+			
+		}else {
+			map.put("id", member.getId());
+			map.put("mostReserveStore", mostReserveStore);
+			
+			//2순위 평점
+			List<StoreVO> highScoreStore =  dao.highScoreStore(map);
+			
+			if(highScoreStore.isEmpty()){
+				highScoreStore = mostReserveStore;
+			}
+			
+			if(sizeCheck(highScoreStore)){
+				preferredStore = highScoreStore.get(0);
+			}else{
+				map.put("highScoreStore",highScoreStore);
+				
+				//3순위 좋아요
+				List<StoreVO> likeItStore = dao.likeItStore(map);
+				System.out.println("size : " + likeItStore.size());
+				if(likeItStore.isEmpty()){
+					likeItStore = highScoreStore;
+				}
+				
+				if(sizeCheck(likeItStore)){
+					preferredStore = likeItStore.get(0);
+				}else{
+					map.put("likeItStore", likeItStore);
+					
+				}
+				
+			}
+		}
+
+		return preferredStore;
+	}
+
+	public boolean sizeCheck(List<StoreVO> list){
+		if(list.size() == 1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+}

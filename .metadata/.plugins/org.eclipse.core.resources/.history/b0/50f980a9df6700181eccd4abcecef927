@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="koing.kosta180.mapper.recommendMapper">
+
+	<select id="getTime" resultType="string">
+		select sysdate from dual
+	</select>
+
+	<!-- 좋아요 많은 상점ID 3개 가져오기 -->
+	<select id="mostLikeStoreList" resultType="StoreVO">
+		<![CDATA[
+		select *
+		from store
+		where s_no in (select s_no
+        					        from (select s_no, count(*) from likeit group by s_no order by count(*) desc)
+                					where rownum <=3)
+		]]>
+	</select>
+
+	<!-- 회원 ID를 통해 예약횟수가 가장 많은 상점정보 가져오기 -->
+	<select id="mostReserveStore" parameterType="MemberVO"
+		resultType="StoreVO">
+	<![CDATA[
+		select * from store 
+		where s_no in (select s_no 
+									from (select s_no, count, dense_rank()over(order by count desc) as ranking
+												from (select s_no, count(*) as count
+															from reservation
+															where id = #{id}
+															group by s_no))
+									where ranking=1)
+	]]>
+
+	</select>
+
+	<!-- 예약횟수가 많은 상점들 중에서 리뷰 평점이 좋은 상점정보 -->
+	<select id="highScoreStore" parameterType="java.util.HashMap"
+		resultType="StoreVO">
+
+		SELECT *
+		FROM STORE
+		WHERE S_NO IN (SELECT S_NO
+		FROM(SELECT S_NO,
+		AVERAGE_SCORE, DENSE_RANK()OVER(ORDER BY AVERAGE_SCORE DESC) AS
+		RANKING
+		FROM(SELECT S_NO, (avg(c_score))AVERAGE_SCORE
+		FROM(select *
+		from
+		reservation r, comments c
+		where r.r_no = c.r_no and id = #{id})
+		<choose>
+			<when test="mostReserveStore.size != 0">
+				WHERE S_NO IN
+				<foreach collection="mostReserveStore" item="item" index="index"
+					open="(" separator="," close=")">
+					#{item.s_no}
+				</foreach>
+			</when>
+		</choose>
+		GROUP BY S_NO
+		ORDER BY AVERAGE_SCORE DESC))
+		WHERE RANKING=1)
+	</select>
+
+	<!-- 3순위 찜했던 상점 -->
+	<!--http://huskdoll.tistory.com/507 참고 -->
+	<select id="likeItStore" parameterType="java.util.HashMap"
+		resultType="StoreVO">
+		select * from store
+		where s_no in( select s_no from likeit where id =
+		#{id}
+		<choose>
+			<when test="highScoreStore.size != 0">
+				and s_no in
+				<foreach collection="highScoreStore" item="item" index="index"
+					open="(" separator="," close=")"> #{item.s_no} </foreach>
+			</when>
+		</choose>
+		)
+	</select>
+
+<!-- 회원가입시 선택한 상점번호 가져오기  -->
+<select id="joinStoreId" parameterType="String" resultType="String">
+	select m_storeid from member where id = #{id}
+</select>
+
+<!-- 상점번호리스트로 카테고리점수 가져오기  -->
+<select id="categoryScore" parameterType="java.util.HashMap" resultType="CategoryScoreVO">
+	select * from categoryScore 
+	<choose>
+		<when test="joinStoreList.size != 0">
+			where s_no in 
+			<foreach collection="joinStoreList" item="item" index="index" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</when>
+	</choose>
+
+</select>
+
+
+
+</mapper>

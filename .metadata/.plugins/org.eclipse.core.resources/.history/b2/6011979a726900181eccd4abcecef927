@@ -1,0 +1,13 @@
+package koing.kosta180.service;
+
+import koing.kosta180.domain.LikeItVO;
+
+public class LikeItServiceImpl implements LikeItService {
+
+	@Override
+	public void insertLikeIt(LikeItVO likeIt) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package koing.kosta180.service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import koing.kosta180.persistence.RecommendDAO;
+
+@Service
+public class RecommendServiceImpl implements RecommendService {
+
+	@Inject
+	private RecommendDAO dao;
+	
+	private static final Logger logger = LoggerFactory.getLogger(RecommendServiceImpl.class);
+
+	@Override
+	public List<String> mostLikeStoreList() throws Exception {
+		List<String> mostLikeStoreList = dao.mostLikeStoreList();
+		System.out.println("ServiceImpl에서 mostLikeStoreList의 size : "+mostLikeStoreList.size());
+		return mostLikeStoreList;
+	}
+
+	
+	
+
+}

@@ -1,0 +1,63 @@
+package koing.kosta180.service;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import koing.kosta180.domain.MemberVO;
+import koing.kosta180.persistence.MemberDAO;
+
+@Service
+public class MemberServiceImpl implements MemberService {
+
+	@Inject
+	private MemberDAO dao;
+
+	@Override
+	public void insertMember(MemberVO member) throws Exception {
+		// 회원가입
+		dao.insertMember(member);
+	}
+
+	@Override
+	public Integer idCheck(String id) {
+		// 회원가입 시 id 중복 체크
+		return dao.idCheck(id);
+	}
+
+	@Override
+	public int loginSelect(String id, String pw) {
+		// 로그인시 id와 pw 비교
+		String DBpw = null;
+		int x = -2;
+		try {
+			DBpw = dao.loginSelect(id);
+			System.out.println("DBpw : " + DBpw);
+			if (DBpw != null) {
+				// 비밀번호 비교
+				if (DBpw.equals(pw)) {
+					// 로그인 성공
+					x = 1;
+				} else {
+					// 비밀번호 오류
+					x = 0;
+				}
+			} else {
+				// 아이디가 존재하지 않음
+				x = -1;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return x;
+	}
+
+	@Override
+	public MemberVO loginMember(String id) {
+		// 로그인 한 회원의 정보가지고옴
+		return dao.loginMember(id);
+	}
+
+}

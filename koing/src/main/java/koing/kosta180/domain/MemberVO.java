@@ -11,6 +11,7 @@ public class MemberVO {
 	private boolean m_agree;
 	private String m_grade;
 	private String m_storeId;
+	private String m_email;
 	
 	public String getId() {
 		return id;
@@ -72,10 +73,17 @@ public class MemberVO {
 	public void setM_storeId(String m_storeId) {
 		this.m_storeId = m_storeId;
 	}
+	
+	public String getM_email() {
+		return m_email;
+	}
+	public void setM_email(String m_email) {
+		this.m_email = m_email;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", pw=" + pw + ", m_name=" + m_name + ", m_gender=" + m_gender + ", m_ssno="
 				+ m_ssno + ", m_pno=" + m_pno + ", m_address=" + m_address + ", m_agree=" + m_agree + ", m_grade="
-				+ m_grade + ", m_storeId=" + m_storeId + "]";
+				+ m_grade + ", m_storeId=" + m_storeId + ", m_email=" + m_email + "]";
 	}
 }
