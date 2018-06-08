@@ -17,7 +17,7 @@
 			<c:otherwise>
 				<c:forEach var="ticketList" items="${allTicketList}">
 					<div class="element  small_coupon first">
-						<a href="detailTicket?t_bno=${ticketList.t_bno}"
+						<a href="ticket/detailTicket?t_bno=${ticketList.t_bno}"
 							class="image"
 							style="display: block; background-image: url(&quot;http://c2.poing.co.kr/MRI-original/MjAxNzA5/150657782259cc8d9ed5a94.jpeg&quot;);">
 							<div class="shading"></div>

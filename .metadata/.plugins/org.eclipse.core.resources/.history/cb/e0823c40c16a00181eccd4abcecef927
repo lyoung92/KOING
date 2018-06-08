@@ -17,7 +17,7 @@ import koing.kosta180.domain.TicketVO;
 import koing.kosta180.service.TicketService;
 
 @Controller
-@RequestMapping("/ticket/*")
+@RequestMapping("/ticket/")
 public class TicketController {
 
 	@Inject
@@ -47,7 +47,7 @@ public class TicketController {
 		List<TicketVO> ticketList = service.listManagerTicket("hanna"); // �������� id �� �޾ƿ���
 		model.addAttribute("managerTicketList", ticketList);
 
-		return "ticket/listManagerTicket";
+		return "listManagerTicket";
 	}
 
 	@RequestMapping(value = "listMemberTicket", method = RequestMethod.GET)
@@ -55,14 +55,14 @@ public class TicketController {
 		List<TicketVO> ticketList = service.listMemberTicket();
 		model.addAttribute("memberTicketList", ticketList);
 
-		return "ticket/listMemberTicket";
+		return "listMemberTicket";
 	}
 
 	@RequestMapping(value = "deleteTicket", method = RequestMethod.GET)
 	public String deleteTicket(@RequestParam("t_bno") String t_bno, HttpServletRequest request) throws Exception {
 
 		service.deleteTicket(t_bno);
-		return "redirect:/ticket/listManagerTicket";
+		return "redirect:/listManagerTicket";
 	}
 
 	@RequestMapping(value = "updateTicket", method = RequestMethod.POST)
@@ -85,7 +85,7 @@ public class TicketController {
 		TicketVO ticket = service.readTicket(t_bno);
 		model.addAttribute("ticket", ticket);
 
-		return "ticket/updateTicket";
+		return "updateTicket";
 	}
 	
 	@RequestMapping(value = "detailTicket", method = RequestMethod.GET)
@@ -95,6 +95,6 @@ public class TicketController {
 		TicketVO ticket = service.readTicket(t_bno);
 		model.addAttribute("ticket", ticket);
 		
-		return "ticket/detailTicket";
+		return "detailTicket";
 	}
 }

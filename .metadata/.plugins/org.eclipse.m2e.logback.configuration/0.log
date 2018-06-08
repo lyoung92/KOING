@@ -12588,3 +12588,48 @@
 2018-06-08 11:01:33,560 [Worker-2564] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2018-06-08 11:01:33,561 [Worker-2564] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2018-06-08 11:01:33,561 [Worker-2564] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:09:40,317 [Worker-2581] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:09:40,318 [Worker-2581] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:09:40,318 [Worker-2581] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:09:40,319 [Worker-2581] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:09:40,319 [Worker-2581] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:11:28,008 [Worker-2577] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:11:28,010 [Worker-2577] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:11:28,011 [Worker-2577] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-06-08 11:11:28,012 [Worker-2577] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:11:28,012 [Worker-2577] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:12:26,713 [Worker-2576] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:12:26,714 [Worker-2576] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:12:26,716 [Worker-2576] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-06-08 11:12:26,717 [Worker-2576] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:12:26,717 [Worker-2576] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:12:31,052 [Worker-2581] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:12:31,055 [Worker-2581] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:12:31,057 [Worker-2581] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-06-08 11:12:31,059 [Worker-2581] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:12:31,059 [Worker-2581] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:12:33,304 [Worker-2582] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:12:33,305 [Worker-2582] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:12:33,306 [Worker-2582] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-06-08 11:12:33,308 [Worker-2582] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:12:33,309 [Worker-2582] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:14:04,799 [Worker-2576] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:14:04,800 [Worker-2576] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:14:04,800 [Worker-2576] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:14:04,800 [Worker-2576] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:14:04,801 [Worker-2576] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:14:47,910 [Worker-2582] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:14:47,911 [Worker-2582] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:14:47,912 [Worker-2582] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:14:47,912 [Worker-2582] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:14:47,913 [Worker-2582] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:15:16,752 [Worker-2583] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:15:16,753 [Worker-2583] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:15:16,754 [Worker-2583] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:15:16,754 [Worker-2583] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:15:16,754 [Worker-2583] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:15:19,900 [Worker-2580] ERROR o.e.m.c.i.URLConnectionCaches - Unexpected URLConnection defaultUseCaches enabled
+2018-06-08 11:15:19,903 [Worker-2580] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:15:19,903 [Worker-2580] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-06-08 11:15:19,904 [Worker-2580] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2018-06-08 11:15:19,904 [Worker-2580] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource

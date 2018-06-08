@@ -95,6 +95,6 @@ public class TicketController {
 		TicketVO ticket = service.readTicket(t_bno);
 		model.addAttribute("ticket", ticket);
 		
-		return "ticket/detailTicket";
+		return "detailTicket";
 	}
 }
