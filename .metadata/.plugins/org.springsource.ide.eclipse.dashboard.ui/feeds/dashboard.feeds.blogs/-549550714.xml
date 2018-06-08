@@ -5,7 +5,73 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-06-06T08:01:00Z</updated>
+  <updated>2018-06-06T19:54:29Z</updated>
+  <entry>
+    <title>Spring Cloud Data Flow 1.5.1 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/06/06/spring-cloud-data-flow-1-5-1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Mark Pollack</name>
+    </author>
+    <id>tag:spring.io,2018-06-06:3295</id>
+    <updated>2018-06-06T19:54:29Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;a href="https://cloud.spring.io/spring-cloud-dataflow/"&gt;Spring Cloud Data Flow&lt;/a&gt; team is pleased to announce the &lt;code&gt;1.5.1&lt;/code&gt; GA release. Follow the &lt;em&gt;Getting Started&lt;/em&gt; guides for &lt;a href="https://docs.spring.io/spring-cloud-dataflow/docs/1.5.1.RELEASE/reference/htmlsingle/#getting-started"&gt;Local Server&lt;/a&gt;, &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-cloudfoundry/docs/1.5.1.RELEASE/reference/htmlsingle/#getting-started"&gt;Cloud Foundry&lt;/a&gt;, and &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-kubernetes/docs/1.5.1.RELEASE/reference/htmlsingle/#kubernetes-getting-started"&gt;Kubernetes&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This is a bug fix release.  The server improves the handling of special characters in stream definitions and passing of comma delimited strings in the Task launch argument list.  It should be used with Skipper 1.0.5.RELEASE.  The UI has been improved to support stream update functionality.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-dataflow"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/issues"&gt;GitHub&lt;/a&gt; or via &lt;a href="https://gitter.im/spring-cloud/spring-cloud-dataflow"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Cloud Skipper 1.0.5 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/06/06/spring-cloud-skipper-1-0-5-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Mark Pollack</name>
+    </author>
+    <id>tag:spring.io,2018-06-06:3294</id>
+    <updated>2018-06-06T19:54:20Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the team, I am pleased to announce the release of Spring Cloud Skipper 1.0.5 GA&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Skipper is a lightweight tool that allows you to discover Spring Boot applications and manage their lifecycle on multiple Cloud Platforms. You can use Skipper standalone or integrate it with Continuous Integration pipelines to help implement the practice of Continuous Deployment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;a href="https://docs.spring.io/spring-cloud-skipper/docs/1.0.5.RELEASE/reference/htmlsingle/#getting-started"&gt;getting started section&lt;/a&gt; in the reference guide is the best place to start kicking the tires.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This is primarily a bug fix release.  Significant changes since the 1.0 GA release are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Improved state management by simplifying objects that are serialized by the state machine.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Improved handling of timeout during upgrade and rollback.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Package upgrades can now be cancelled.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Improved escaping of special characters in generated YAML.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Upgraded deployer libraries to latest versions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update to Spring Shell 2.0.1.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Please reach out on &lt;a href="https://github.com/spring-cloud/spring-cloud-skipper/issues"&gt;GitHub Issues&lt;/a&gt;, &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-skipper"&gt;Stack Overflow&lt;/a&gt;, and the &lt;a href="https://gitter.im/spring-cloud/spring-cloud-skipper"&gt;Gitter channel&lt;/a&gt; with questions, feedback or contributions.&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>Spring Tips: JPA</title>
     <link rel="alternate" href="https://spring.io/blog/2018/06/06/spring-tips-jpa" />
@@ -1130,38 +1196,5 @@ Issues&lt;/a&gt;, or via the comments section. You can also ping me
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Project Vulnerability Reports Published</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/05/09/spring-project-vulnerability-reports-published" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Rossen Stoyanchev</name>
-    </author>
-    <id>tag:spring.io,2018-05-09:3274</id>
-    <updated>2018-05-09T16:18:00Z</updated>
-    <content type="html">&lt;p&gt;The following CVEs have been published today:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://pivotal.io/security/cve-2018-1257"&gt;CVE-2018-1257&lt;/a&gt; for Spring Framework &lt;a href="https://spring.io/blog/2018/05/08/spring-framework-4-3-17-and-5-0-6-available-now"&gt;5.0.6, 4.3.17&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://pivotal.io/security/cve-2018-1258"&gt;CVE-2018-1258&lt;/a&gt; for Spring Security &lt;a href="https://spring.io/blog/2018/05/08/spring-security-5-0-5-released"&gt;5.0.5&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://pivotal.io/security/cve-2018-1259"&gt;CVE-2018-1259&lt;/a&gt; for Spring Data &lt;a href="https://spring.io/blog/2018/05/08/spring-data-ingalls-sr12-and-kay-sr7-released"&gt;Ingalls SR12, Kay SR7&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://pivotal.io/security/cve-2018-1260"&gt;CVE-2018-1260&lt;/a&gt; for Spring Security OAuth &lt;a href="https://spring.io/blog/2018/05/08/spring-security-oauth-2-3-3-2-2-2-2-1-2-2-0-15-released"&gt;2.3.3, 2.2.2, 2.1.2, 2.0.15&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://pivotal.io/security/cve-2018-1261"&gt;CVE-2018-1261&lt;/a&gt; for Spring Integration ¡°Zip¡± extension &lt;a href="https://github.com/spring-projects/spring-integration-extensions/releases/tag/zip.v1.0.1.RELEASE"&gt;1.0.1&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Please, review the information in the CVE reports and upgrade immediately. &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Spring Boot Users:&lt;/strong&gt; Spring Boot &lt;a href="https://spring.io/blog/2018/05/09/spring-boot-2-0-2"&gt;2.0.2&lt;/a&gt; and &lt;a href="https://spring.io/blog/2018/05/09/spring-boot-1-5-13"&gt;1.5.13&lt;/a&gt;, released earlier today, contain the fixes for the above vulnerabilities.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Tips: Spring Security 5 OAuth Clients</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/05/09/spring-tips-spring-security-5-oauth-clients" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2018-05-09:3273</id>
-    <updated>2018-05-09T15:43:54Z</updated>
-    <content type="html">&lt;p&gt;speaker: &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hi Spring fans! In this installment we&amp;rsquo;ll look at the new OAuth client support in Spring Security 5.&lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/gSUeGi4sLlA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen&gt;&lt;/iframe&gt;</content>
   </entry>
 </feed>

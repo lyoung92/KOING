@@ -36,4 +36,41 @@ public class StoreDAOImpl implements StoreDAO {
 		return sqlSession.selectList(namespace+".categoryStoreList");
 	}*/
 	
+	@Override
+	public void insertStore(StoreVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.insert(namespace+".insertStore", vo);
+		
+	}
+
+	@Override
+	public List<StoreVO> listStore(String s_category) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".listStore",s_category);
+	}
+
+	@Override
+	public StoreVO detailStore(String s_no) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".detailStore", s_no);
+	}
+
+	@Override
+	public void updateStrore(StoreVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.update(namespace+".updateStore", vo);
+	}
+
+	@Override
+	public void deleteStore(String s_no) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.delete(namespace+".deleteStore", s_no);
+	}
+
+	@Override
+	public void addFile(String fullName) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.insert(namespace+".addFile", fullName);
+	}
+
 }

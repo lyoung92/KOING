@@ -9,9 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import koing.kosta180.domain.LocationStoreVO;
-import koing.kosta180.domain.MemberVO;
 import koing.kosta180.domain.StoreVO;
-import koing.kosta180.persistence.MemberDAO;
 import koing.kosta180.persistence.StoreDAO;
 
 @Service
@@ -35,10 +33,52 @@ public class StoreServiceImpl implements StoreService {
 		return locationStoreVO;
 	}
 
-	@Override
+	/*@Override
 	public List<StoreVO> categoryStoreList(StoreVO store) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}*/
+	
+	@Override
+	public void insertStore(StoreVO store) throws Exception {
+		// TODO Auto-generated method stub
+		dao.insertStore(store);
+		
+		String files[] = store.getS_files();
+		
+		if(files == null){
+			return;
+		}
+		
+		for(String fileName : files){
+			dao.addFile(fileName);
+		}
+		System.out.println("storeService insert 吏꾩엯");
 	}
+
+	@Override
+	public StoreVO detailStore(String s_no) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.detailStore(s_no);
+	}
+
+	@Override
+	public void updateStore(StoreVO store) throws Exception {
+		// TODO Auto-generated method stub
+		dao.updateStrore(store);
+	}
+
+	@Override
+	public void deleteStore(String s_no) throws Exception {
+		// TODO Auto-generated method stub
+		dao.deleteStore(s_no);
+	}
+
+	@Override
+	public List<StoreVO> listStore(String s_category) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listStore(s_category);
+	}
+
 	
 }

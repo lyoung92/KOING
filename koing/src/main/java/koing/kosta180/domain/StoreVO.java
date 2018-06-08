@@ -1,5 +1,7 @@
 package koing.kosta180.domain;
 
+import java.util.Arrays;
+
 public class StoreVO {
 
 	private String s_no;
@@ -12,6 +14,7 @@ public class StoreVO {
 	private String id;
 	private String s_contents;
 	private String s_location_no;
+	private String s_files[];
 	
 	
 	public String getS_no() {
@@ -75,11 +78,18 @@ public class StoreVO {
 		this.s_location_no = s_location_no;
 	}
 	
+	public String[] getS_files() {
+		return s_files;
+	}
+	public void setS_files(String[] s_files) {
+		this.s_files = s_files;
+	}
 	@Override
 	public String toString() {
 		return "StoreVO [s_no=" + s_no + ", s_name=" + s_name + ", s_address=" + s_address + ", s_tel=" + s_tel
 				+ ", s_img=" + s_img + ", s_category=" + s_category + ", s_keyword=" + s_keyword + ", id=" + id
-				+ ", s_contents=" + s_contents + ", s_location_no=" + s_location_no + "]";
+				+ ", s_contents=" + s_contents + ", s_location_no=" + s_location_no + ", s_files="
+				+ Arrays.toString(s_files) + "]";
 	}
 	
 	

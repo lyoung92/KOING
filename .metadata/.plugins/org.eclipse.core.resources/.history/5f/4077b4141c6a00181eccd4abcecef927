@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="koing.kosta180.mapper.StoreMapper">
+
+	<select id="getTime" resultType="string">
+		select sysdate from dual
+	</select>
+	
+	<!-- 상점 -->
+
+
+	<select resultType="StoreVO" id="listStore"> 
+		select * from store 
+		order by s_no
+	</select>
+
+	<insert id="insertStore" parameterType="StoreVO"> insert into store(s_no,
+		s_name, s_address, s_tel, s_img, s_category, s_keyword, id,
+		s_contents, s_location_no) values(#{s_no}, #{s_name}, #{s_address},
+		#{s_tel}, #{s_img}, #{s_category}, #{s_keyword}, #{id}, #{s_contents},
+		#{s_location_no})
+	</insert>
+
+	<insert id="addFile" parameterType="StoreVO"> insert into
+		store_file(fullname, s_no) values(#{fullName}, #{s_no}) </insert>
+
+	<select resultType="StoreVO" id="detailStore" parameterType="String">
+		select * from store where s_no = #{s_no} </select>
+
+	<!-- 지역별 상점리스트 가져오기 -->
+	<select id="locationStoreList" parameterType="String" resultType="StoreVO">
+		select * from store where s_location_no = #{s_location_no}
+	</select>
+
+</mapper>
