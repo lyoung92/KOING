@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import koing.kosta180.domain.CommentVO;
 import koing.kosta180.domain.Criteria;
+import koing.kosta180.domain.ReservationVO;
 import koing.kosta180.persistence.CommentDao;
 
 @Service
@@ -37,7 +38,6 @@ public class CommentServiceImpl implements CommentService {
 	public void deleteComment(String c_no) throws Exception {
 		dao.deleteComment(c_no);
 		System.out.println("service delete 진입");
-
 	}
 
 	@Override
@@ -55,4 +55,10 @@ public class CommentServiceImpl implements CommentService {
 		return dao.getComment(c_no);
 	}
 
+	@Override
+	public List<ReservationVO> reseerveStore(HashMap<String, String> map) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.reseerveStore(map);
+	}
+	
 }

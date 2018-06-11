@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="koing.kosta180.mappers.TicketMapper">
+	
+	<select id="getStoreList" parameterType="String" resultType="StoreVO">
+		select * from store where id = #{value}
+	</select>
+
+
+	<insert id="insertTicket" parameterType="TicketVO">
+		insert into ticket(
+		t_bno, t_contents, s_no, t_cost, t_discount, t_fixedprice,t_effectivelife
+		)values(
+		CONCAT('B',c_no_seq.nextval), #{t_contents}, 'A01', #{t_cost}, #{t_discount}, #{t_cost}-(#{t_cost})*(#{t_discount}/100),#{t_effectivelife}
+		)
+	</insert>
+	
+	<insert id = "issuedTicket"  parameterType="TicketVO">
+		insert into issued_t(
+		i_no, t_bno, i_valid, id
+		)values(
+		(select NVL(max(i_no),0)+1 from issued_t), (select t_bno from ticket), sysdate + (select t_effectivelife from ticket), #{id}
+		)
+	</insert>
+	
+	<insert id = "completeTicket"  parameterType="TicketVO">
+		insert into complete_t(
+		i_no, com_contents
+		)values(
+		(select i_no from issued_t), #{com_contents}
+		)
+	</insert>
+	
+	<select id="readTicket" parameterType="String" resultType="TicketVO">
+		select * from ticket where t_bno = #{t_bno}
+	</select>
+	
+	<update id="updateTicket">
+		update ticket
+		set t_contents = #{t_contents}, t_cost = #{t_cost}, t_discount = #{t_discount}, t_effectivelife = #{t_effectivelife}
+		where t_bno = #{t_bno} and s_no = #{s_no}
+	</update>
+	
+	<delete id="deleteTicket" parameterType="String">
+		delete from ticket
+		where t_bno = #{t_bno}
+	</delete>
+	
+	<select id="listAllTicket" resultType="TicketVO">
+			 select * from ticket
+			 order by t_bno desc
+	</select>
+	
+	<select id="listMemberTicket" resultType="TicketVO">
+			 select t.t_bno, t.t_contents, t.s_no, t.t_cost, t.t_discount, t.t_fixedprice, t.t_effectivelife, i.i_no, i.i_valid, c.com_contents
+			 from ticket t, issued_t i, complete_t c
+			 where t.t_bno = i.t_bno
+			 and i.i_no = c.i_no and id = #{id}
+			 order by t.t_bno desc, i.i_valid desc
+	</select>
+	
+	<select id="listManagerTicket" resultType="TicketVO">
+			 select * from ticket
+			 where s_no = (select s_no from store where id = #{id})
+			 order by t_bno desc
+	</select>
+	
+	<insert id="insertIssue" parameterType="java.util.HashMap">
+		insert into ISSUED_T values(#{i_no}, #{t_bno}, #{t_effectivelife}, #{id})
+	</insert>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

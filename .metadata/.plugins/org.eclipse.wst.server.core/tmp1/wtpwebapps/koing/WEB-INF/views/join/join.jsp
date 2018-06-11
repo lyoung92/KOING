@@ -179,11 +179,6 @@
 						<input type="text" name="m_address2" placeholder="세부주소">
 					</div>
 
-
-
-
-
-
 					<p class="subtitle">약관동의</p>
 					<div class="clause">
 

@@ -19,6 +19,7 @@ import koing.kosta180.domain.CategoryScoreVO;
 import koing.kosta180.domain.MatchingMemberVO;
 import koing.kosta180.domain.MatchingResVO;
 import koing.kosta180.domain.MatchingVO;
+import koing.kosta180.domain.StoreVO;
 import koing.kosta180.persistence.MatchingDAO;
 
 @Service
@@ -28,7 +29,10 @@ public class MatchingServiceImpl implements MatchingService {
 	private MatchingDAO dao;
 
 	@Override
-	public void insertMatching(MatchingVO vo) throws Exception {
+	public void insertMatching(MatchingVO vo, String s_no) throws Exception {
+		vo.setS_name(dao.getStoreName(s_no));
+		System.out.println(s_no);
+		System.out.println(vo.getS_name());
 		dao.insertMatching(vo);
 	}
 
@@ -111,42 +115,42 @@ public class MatchingServiceImpl implements MatchingService {
 	public void sendMail(String m_email) throws Exception {
 
 		Properties p = System.getProperties();
-		p.put("mail.smtp.starttls.enable", "true"); // gmailÀº ¹«Á¶°Ç true °íÁ¤
-		p.put("mail.smtp.host", "smtp.gmail.com"); // smtp ¼­¹ö ÁÖ¼Ò
-		p.put("mail.smtp.auth", "true"); // gmailÀº ¹«Á¶°Ç true °íÁ¤
-		p.put("mail.smtp.port", "587"); // gmail Æ÷Æ®
+		p.put("mail.smtp.starttls.enable", "true"); // gmailï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ true ï¿½ï¿½ï¿½ï¿½
+		p.put("mail.smtp.host", "smtp.gmail.com"); // smtp ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
+		p.put("mail.smtp.auth", "true"); // gmailï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ true ï¿½ï¿½ï¿½ï¿½
+		p.put("mail.smtp.port", "587"); // gmail ï¿½ï¿½Æ®
 
 		Authenticator auth = new MyAuthentication();
 
-		// session »ı¼º ¹× MimeMessage»ı¼º
+		// session ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ MimeMessageï¿½ï¿½ï¿½ï¿½
 		Session session = Session.getDefaultInstance(p, auth);
 		MimeMessage msg = new MimeMessage(session);
 
 		try {
-			// ÆíÁöº¸³½½Ã°£
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 			msg.setSentDate(new Date());
 
 			InternetAddress from = new InternetAddress();
 
 			from = new InternetAddress("koingmatching<koingmatching@gmail.com>");
 
-			// ÀÌ¸ŞÀÏ ¹ß½ÅÀÚ
+			// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½
 			msg.setFrom(from);
 
-			// ÀÌ¸ŞÀÏ ¼ö½ÅÀÚ
+			// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			InternetAddress to = new InternetAddress(m_email);
 			msg.setRecipient(Message.RecipientType.TO, to);
 
-			// ÀÌ¸ŞÀÏ Á¦¸ñ
-			msg.setSubject("¸ÅÄªÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.", "UTF-8");
+			// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			msg.setSubject("ì‹ ì²­í•˜ì‹  ë§¤ì¹­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.", "UTF-8");
 
-			// ÀÌ¸ŞÀÏ ³»¿ë
-			msg.setText("È¸¿ø´ÔÀÌ µî·ÏÇÏ½Å ¸ÅÄª ÀÎ¿ø ¸ğÁıÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.", "UTF-8");
+			// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			msg.setText("ë§ˆì´í˜ì´ì§€ì—ì„œ ë§¤ì¹­ì„ í™•ì¸í•´ì£¼ì„¸ìš”", "UTF-8");
 
-			// ÀÌ¸ŞÀÏ Çì´õ
+			// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			msg.setHeader("content-Type", "text/html");
 
-			// ¸ŞÀÏº¸³»±â
+			// ï¿½ï¿½ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½
 			javax.mail.Transport.send(msg);
 
 		} catch (AddressException addr_e) {
@@ -154,6 +158,7 @@ public class MatchingServiceImpl implements MatchingService {
 		} catch (MessagingException msg_e) {
 			msg_e.printStackTrace();
 		}
+		
 	}
 
 	@Override
@@ -180,6 +185,24 @@ public class MatchingServiceImpl implements MatchingService {
 	public List<MatchingVO> listCateMatching(String s_no) throws Exception {
 		return dao.listCateMatching(s_no);
 	}
+
+	@Override
+	public String getId(String mc_bno) throws Exception {
+		return dao.getId(mc_bno);
+	}
+
+	@Override
+	public MatchingVO Matchinginfo(String mc_bno) throws Exception {
+		return dao.Matchinginfo(mc_bno);
+	}
+
+	@Override
+	public List<StoreVO> allStoreList() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.allStoreList();
+	}
+
+	
 	
 	
 }

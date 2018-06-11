@@ -1,9 +1,0 @@
-package koing.kosta180.domain;
-
-public class CommentsVO {
-	private String c_no;
-	private String c_contents;
-	private Integer c_score;
-	private String c_img;
-	private String r_no;
-}

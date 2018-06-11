@@ -34,29 +34,15 @@
 </head>
 <body>
 	<jsp:include page="../layout/header.jsp" />
-	<!-- Banner Section -->
-	<div id="banner" class="image"
-		style="background-image: url(http://c1.poing.co.kr/original/images/restaurant/kind.png)">
-		<div class="title_wrap">
-			<div class="title">
-				포잉 다이닝 티켓을 통해 최고의 레스토랑들을<br>합리적인 가격에 만나보세요.
-			</div>
-		</div>
-		<div class="line">
-			<hr>
-		</div>
-		<div class="subtitle">Curated by Koing</div>
-	</div>
-	<!-- End Banner Section -->
+	<jsp:include page="../main/ticketmain.jsp" />
 
 	<div class="container" style="width: 750px;">
+		<h2>나의 매칭글</h2>
 		<c:choose>
-			<c:when test="${myMatchingList == null}">
-				<h2>나의 매칭글</h2>
+			<c:when test="${empty myMatchingList}">
 				게시글이 없습니다.
             </c:when>
 			<c:otherwise>
-				<h2>나의 매칭글</h2>
 				<table class="storelist table table-hover">
 					<thead>
 						<tr>

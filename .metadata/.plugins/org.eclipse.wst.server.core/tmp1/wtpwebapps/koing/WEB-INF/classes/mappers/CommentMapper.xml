@@ -4,9 +4,7 @@
 
 <mapper namespace="koing.kosta180.mapper.CommentMapper">
 	<insert id="insertComment" parameterType="CommentVO">
-		insert into comments(c_no, c_contents, c_score, c_img, r_no, id, s_no)
-		values(c_no_seq.nextval, #{c_contents}, #{c_score}, #{c_img},
-		#{r_no}, #{id}, #{s_no})
+		insert into comments values(CONCAT('C',c_no_seq.nextval),#{c_contents},#{c_score},#{c_img},#{r_no},systimestamp)
 	</insert>
 
 	<select id="listComment" parameterType="String" resultType="CommentVO">
@@ -26,22 +24,6 @@
 	</delete>
 
 	<select id="listPage"  resultType="CommentVO">
-	
-		<!--   <![CDATA[
-		 select 
-		  c_no, c_contents, c_score, c_img, r_no, id, s_no
-		 from
-		   (
-		   select /*+INDEX_DESC(comments COMMENTS_CNO_PK))*/
-		     rownum rn, c_no, c_contents, c_score, c_img, tr_no, id, s_no
-		   from comments
-		   where s_no = #{s_no}
-		   and c_no > 0
-		   and rownum <= #{cri.page} * #{cri.perPageNum}
-		   )
-		where rn > ( #{cri.page} -1) * #{cri.perPageNum}
-	  ]]> -->
-
 	<![CDATA[
 		select c_no, c_contents, c_score, c_img, r_no, id, s_no, c_date
 		from (select rownum rn, c_no, c_contents, c_score, c_img, r.r_no as r_no,id, s_no, c_date
@@ -55,6 +37,9 @@
 	<select id="count" resultType="int">
 		select count(*) from(select * from comments c, reservation r where c.r_no = r.r_no) where s_no = #{s_no}
 	</select>
-<!-- 
- -->
+
+	<select id="reseerveStore" parameterType="java.util.HashMap" resultType="ReservationVO">
+		select * from reservation where id = #{id} and s_no = #{s_no}
+	</select>
+
 </mapper>

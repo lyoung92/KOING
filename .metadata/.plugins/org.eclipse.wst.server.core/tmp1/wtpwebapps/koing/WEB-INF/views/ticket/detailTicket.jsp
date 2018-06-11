@@ -11,7 +11,13 @@
 <script type="text/javascript"
 	src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script type="text/javascript">
-
+function isLogin() {
+	var idCheck =document.buy.id.value;
+	if( idCheck == null || idCheck==""){
+		alert("로그인이 되어있지 않습니다.");
+		return false;
+	}
+}
 
 function fn_payment() {
     /*  location.href = "payment.jsp"; */
@@ -46,11 +52,13 @@ function fn_payment() {
       alert(msg);
   });
   }
+ 
 
 </script>
 
 </head>
 <body>
+<jsp:include page="../layout/header.jsp" />
 	<div id="banner" class="product">
 		<div class="i_wrap background">
 			<i class="image"
@@ -94,12 +102,19 @@ function fn_payment() {
 	</div>
 
 	<div id="content_wrap">
-
 		<div id="sidebar_wrap" class="detail">
 			<button class="sidebar buy border_radius soft" data-id="2552"
 				data-cart="true" tabindex="-1" onclick="fn_payment();">바로
 				구매하기</button>
+			<form name = "buy" id = "buy" role="form" method="post" onsubmit="return isLogin()" action="../ticket/insertIssue" >
+				<input type="hidden" name = "id" id="id" value="${sessionMember.id }">
+				<input type="hidden" name="t_bno" id="t_bno"  value="${ticket.t_bno }"/>
+				<input type="hidden" name = "t_effectivelife" id="t_effectivelife" value="${ticket.t_effectivelife }">
+				<input type="submit" class="btn" value="구매하기">
+			</form>
 		</div>
+	
 	</div>
+	<jsp:include page="../layout/footer.jsp" />
 </body>
 </html>

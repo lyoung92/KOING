@@ -1,0 +1,7 @@
+function ticketdetail(t_bno) {
+   location.href = "findTicket?t_bno=" + t_bno;
+}
+
+function ticketdelete(t_bno) {
+   location.href = "deleteTicket?t_bno=" + t_bno;
+}

@@ -32,6 +32,11 @@
 		width: 750!important;
 		height: 400px!important;
 	}
+	p.card-text{
+		color: #ffffff;
+    font-weight: 1000;
+    font-size: 17px;
+	}
 </style>
 <body>
 <jsp:include page="../layout/header.jsp"/>
@@ -41,7 +46,7 @@
       <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="container" style="padding:0; font-family: monospace;" >
+        <div class="container" style="padding:0; font-family: monospace; margin-top: 5%;" >
 
           <h1 class="my-4">${store.s_name } / 
             <small>${store.s_category }</small>
@@ -49,9 +54,9 @@
           
 
           <!-- Blog Post -->
-          <div class="card mb-4" style="border-radius:6px; background-color:#212529; width: 800px;margin: auto; text-align: center;">
+          <div class="card mb-4" style="border-radius:6px; background-color:#b91b39; width: 800px;margin: auto; text-align: center;">
                <div id="carouselExampleIndicators" class="carousel slide"
-                  data-ride="carousel" style="height:100%; width:64%">
+                  data-ride="carousel" style="height:100%; width:100%">
                   <ol class="carousel-indicators">
                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

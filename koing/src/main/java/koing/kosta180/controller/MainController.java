@@ -51,7 +51,10 @@ public class MainController {
 		}
 
 		try {
-			logger.info(recommendStoreList.get(0).getS_no());
+			for(int i= 0 ; i < recommendStoreList.size(); i++){
+				logger.info(recommendStoreList.get(i).getS_no());
+				logger.info(recommendStoreList.get(i).getS_name());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -27,21 +27,8 @@
 </head>
 <body class="br-light">
 	<jsp:include page="../layout/header.jsp" />
-	<!-- Banner Section -->
-	<div id="banner" class="image "
-		style="background-image: url(http://c1.poing.co.kr/original/images/restaurant/kind.png)">
-		<div class="title_wrap">
-			<div class="title">
-				포잉 다이닝 티켓을 통해 최고의 레스토랑들을<br>합리적인 가격에 만나보세요.
-			</div>
-		</div>
-		<div class="line">
-			<hr>
-		</div>
-		<div class="subtitle">Curated by Koing</div>
-	</div>
-	<!-- End Banner Section -->
-	<div class="container-diy">
+	<jsp:include page="../main/ticketmain.jsp" />
+	<div class="container-diy" style="width: 80%; margin-left: 10%;">
 		<h2>상점 등록</h2>
 		<tbody>
 			<form id="insertForm" role="form" method="post">
@@ -49,7 +36,7 @@
 				<table class="table table-bordered">
 					<tr>
 						<th>아이디</th>
-						<td><input type="text" id="id" name="id" value="aaa" readonly>
+						<td>${sessionMember.id}<input type="hidden" id="id" name="id" value="${sessionMember.id }">
 						</td>
 					</tr>
 					<tr>

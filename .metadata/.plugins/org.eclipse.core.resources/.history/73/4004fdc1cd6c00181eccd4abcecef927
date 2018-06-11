@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="koing.kosta180.mappers.MatchingMapper">
+
+	<insert id="insertMatching" parameterType="MatchingVO">
+		insert into matching(
+		mc_bno, id, mc_title, s_no, mc_contents, mc_img, mc_entryfee, mc_date,
+		mc_time, mc_totalnum, mc_applicantnum, mc_status
+		)values(
+		(select
+		NVL(max(mc_bno),0)+1 from matching), #{id}, #{mc_title}, #{s_no},
+		#{mc_contents}, null,
+		#{mc_entryfee}, #{mc_date}, #{mc_time},
+		#{mc_totalnum}, 0, '매칭진행중'
+		)
+	</insert>
+	
+	<select id="allStoreList" resultType="StoreVO">
+		select * from store
+	</select>
+
+	<select id="readMatching" parameterType="String" resultType="MatchingVO">
+		select m.id, m.mc_bno, m.mc_title, s.s_name, m.mc_contents,
+		m.mc_entryfee, m.mc_date,
+		m.mc_time, m.mc_totalnum, m.mc_applicantnum,
+		m.mc_status
+		from matching m, store s
+		where m.mc_bno = #{mc_bno}
+		and
+		m.s_no = s.s_no
+	</select>
+
+	<update id="updateMatching">
+		update matching
+		set mc_title = #{mc_title},
+		mc_contents = #{mc_contents}, s_no = (select s_no from store where
+		s_name = #{s_name}),
+		mc_entryfee = #{mc_entryfee}, mc_date =
+		#{mc_date}, mc_time = #{mc_time}
+		where
+		mc_bno = #{mc_bno}
+	</update>
+
+	<delete id="deleteMatching" parameterType="String">
+		delete from matching
+		where mc_bno = #{mc_bno}
+	</delete>
+
+	<select id="listAllMatching" resultType="MatchingVO">
+		select * from matching
+		order by mc_bno desc
+	</select>
+
+	<select id="listMatching" resultType="MatchingVO">
+		select *
+		from matching m
+		where
+		order by mc_bno desc
+	</select>
+	
+	<select id="Matchinginfo" parameterType="String" resultType="MatchingVO">
+		select *
+		from matching
+		where mc_bno = #{mc_bno}
+	</select>
+	
+	<select id="listMyMatching" parameterType="String" resultType="MatchingVO">
+		select * from matching
+		where id = #{id}
+		order by mc_bno desc
+	</select>
+	
+	<select id="listCateMatching" resultType="MatchingVO" parameterType="String">
+		select * from matching
+		where s_no = #{s_no}
+	</select>
+	
+
+	<insert id="applyMatching" parameterType="MatchingMemberVO">
+		insert into
+		matching_member(
+		mc_bno, id, mm_date, mm_time, mm_status
+		)values(
+		#{mc_bno}, #{id}, sysdate, systimestamp, '결제완료'
+		)
+	</insert>
+
+	<delete id="cancelMatching" parameterType="String">
+		delete from
+		matching_member
+		where mc_bno = #{mc_bno}
+	</delete>
+
+	<update id="countPlus">
+		update matching
+		set mc_applicantnum = mc_applicantnum
+		+ 1
+		where mc_bno = #{mc_bno}
+	</update>
+
+	<update id="countMinus">
+		update matching
+		set mc_applicantnum = mc_applicantnum
+		- 1
+		where mc_bno = #{mc_bno}
+	</update>
+
+	<select id="getMemberCategory" parameterType="String"
+		resultType="CategoryScoreVO">
+
+		select * from(
+		select *
+		from (
+		select
+		sum(nvl(kor_noodle,0)) as kor_noodle, sum(nvl(kor_meat,0)) as
+		kor_meat, sum(nvl(kor_jjigae,0)) as kor_jjigae,
+		sum(nvl(kor_jjim,0)) as kor_jjim, sum(nvl(kor_soup,0)) as kor_soup, sum(nvl(kor_snack,0))
+		as kor_snack,
+		sum(nvl(kor_etc,0)) as kor_etc, sum(nvl(jap_noodle,0)) as
+		jap_noodle, sum(nvl(jap_meat,0)) as jap_meat,
+		sum(nvl(jap_sushi,0)) as
+		jap_sushi, sum(nvl(jap_rice,0)) as jap_rice, sum(nvl(jap_soup,0)) as
+		jap_soup,
+		sum(nvl(jap_snack,0)) as jap_snack, sum(nvl(jap_etc,0)) as
+		jap_etc, sum(nvl(chn_noodle,0)) as chn_noodle,
+		sum(nvl(chn_meat,0)) as
+		chn_meat, sum(nvl(chn_fry,0)) as chn_fry, sum(nvl(chn_skewer,0)) as
+		chn_skewer,
+		sum(nvl(chn_soup,0)) as chn_soup, sum(nvl(chn_snack,0)) as
+		chn_snack, sum(nvl(chn_etc,0)) as chn_etc,
+		sum(nvl(wes_noodle,0)) as
+		wes_noodle, sum(nvl(wes_meat,0)) as wes_meat, sum(nvl(wes_pizza,0)) as
+		wes_pizza,
+		sum(nvl(wes_skewer,0)) as wes_skewer, sum(nvl(wes_roast,0))
+		as wes_roast, sum(nvl(wes_snack,0)) as wes_snack,
+		sum(nvl(wes_etc,0))
+		as wes_etc, sum(nvl(asia_vietnam,0)) as asia_vietnam,
+		sum(nvl(asia_thai,0)) as asia_thai,
+		sum(nvl(asia_india,0)) as
+		asia_india, sum(nvl(asia_etc,0)) as asia_etc, sum(nvl(alc_soju,0)) as
+		alc_soju,
+		sum(nvl(alc_beer,0)) as alc_beer, sum(nvl(alc_ricewine,0)) as
+		alc_ricewine, sum(nvl(alc_cocktail,0)) as alc_cocktail,
+		sum(nvl(alc_vodka,0)) as alc_vodka, sum(nvl(alc_wine,0)) as alc_wine,
+		sum(nvl(alc_etc,0)) as alc_etc
+		from categoryscore
+		where s_no in (SELECT distinct
+		regexp_substr(A.M_STOREID, '[^,]+', 1,
+		LEVEL) M_STOREID
+		FROM (SELECT
+		M_STOREID FROM MEMBER WHERE ID = 'hanna') A
+		CONNECT BY LEVEL <![CDATA[<=]]>
+		length(regexp_replace(A.M_STOREID, '[^,]+',''))+1))
+		UNPIVOT ( data for name
+		in(kor_noodle,kor_meat,kor_jjigae,kor_jjim,kor_soup,kor_snack,kor_etc,jap_noodle,jap_meat,jap_sushi,
+		jap_rice,jap_soup,jap_snack,jap_etc,chn_noodle,chn_meat,chn_fry,chn_skewer,chn_soup,chn_snack,
+		chn_etc,wes_noodle,wes_meat,wes_pizza,wes_skewer,wes_roast,wes_snack,wes_etc,asia_vietnam,
+		asia_thai,asia_india,asia_etc,alc_soju,alc_beer,alc_ricewine,alc_cocktail,alc_vodka,alc_wine,alc_etc))
+		order by data desc
+		)
+		where rownum<![CDATA[<]]>6
+
+	</select>
+
+	<select id="getMcCategory" parameterType="String" resultType="CategoryScoreVO">
+		select * from(
+		select *
+		from (
+		select
+		kor_noodle as kor_noodle, kor_meat as kor_meat, kor_jjigae as
+		kor_jjigae,
+		kor_jjim as kor_jjim, kor_soup as kor_soup, kor_snack as kor_snack,
+		kor_etc as
+		kor_etc, jap_noodle as jap_noodle, jap_meat as jap_meat,
+		jap_sushi as
+		jap_sushi, jap_rice as jap_rice, jap_soup as jap_soup,
+		jap_snack as
+		jap_snack, jap_etc as jap_etc, chn_noodle as chn_noodle,
+		chn_meat as
+		chn_meat, chn_fry as chn_fry, chn_skewer as chn_skewer,
+		chn_soup as
+		chn_soup, chn_snack as chn_snack, chn_etc as chn_etc,
+		wes_noodle as
+		wes_noodle, wes_meat as wes_meat, wes_pizza as wes_pizza,
+		wes_skewer as
+		wes_skewer, wes_roast as wes_roast, wes_snack as wes_snack,
+		wes_etc as
+		wes_etc, asia_vietnam as asia_vietnam, asia_thai as asia_thai,
+		asia_india as asia_india, asia_etc as asia_etc, alc_soju as alc_soju,
+		alc_beer as alc_beer, alc_ricewine as alc_ricewine, alc_cocktail as
+		alc_cocktail,
+		alc_vodka as alc_vodka, alc_wine as alc_wine, alc_etc as
+		alc_etc
+
+		from categoryscore
+		where s_no = #{s_no})
+		UNPIVOT ( data for name in(kor_noodle,
+		kor_meat,
+		kor_jjigae,
+		kor_jjim,
+		kor_soup,
+		kor_snack,
+		kor_etc,
+		jap_noodle,
+		jap_meat,
+		jap_sushi,
+		jap_rice,
+		jap_soup,
+		jap_snack,
+		jap_etc,
+		chn_noodle,
+		chn_meat,
+		chn_fry,
+		chn_skewer,
+		chn_soup,
+		chn_snack,
+		chn_etc,
+		wes_noodle,
+		wes_meat,
+		wes_pizza,
+		wes_skewer,
+		wes_roast,
+		wes_snack,
+		wes_etc,
+		asia_vietnam,
+		asia_thai,
+		asia_india,
+		asia_etc,
+		alc_soju,
+		alc_beer,
+		alc_ricewine,
+		alc_cocktail,
+		alc_vodka,
+		alc_wine,
+		alc_etc))
+		order by data desc
+		)
+		where rownum<![CDATA[<]]>6
+	</select>
+
+
+
+
+	<insert id="reserveMatching" parameterType="String">
+		insert into
+		matching_res(
+		mc_bno, mr_status
+		)values(
+		#{mc_bno}, '예약대기중'
+		)
+	</insert>
+
+	<delete id="cancelResMatching" parameterType="String">
+		delete from
+		matching_res
+		where mc_bno = #{mc_bno}
+	</delete>
+
+	<update id="acceptRes">
+		update matching_res
+		set mr_status = '예약승인'
+		where mc_bno
+		= #{mc_bno}
+	</update>
+
+	<update id="rejectRes">
+		update matching_res
+		set mr_status = '예약거절'
+		where mc_bno
+		= #{mc_bno}
+	</update>
+
+	<select id="reserveinfo" parameterType="String" resultType="MatchingResVO">
+		select *
+		from matching_res
+		where mc_bno = #{mc_bno}
+	</select>
+	
+	<select id="getId"  parameterType="String" resultType="String">
+		select id from matching
+		where mc_bno = #{mc_bno}
+	</select>
+
+	<select id="getEmail" parameterType="String" resultType="String">
+		select
+		m_email
+		from member
+		where id = #{id}
+	</select>
+	
+
+	<select id="categorysno" resultType="String">
+		select s_no
+		from categoryscore
+	</select>
+
+</mapper>
+
+
+
+
+
+
+

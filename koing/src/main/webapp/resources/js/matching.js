@@ -10,7 +10,7 @@ $(function () {
 });
 
 function updateMatching(mc_bno) {
-	location.href = "next?mc_bno=" + mc_bno;
+	location.href = "updateMatching?mc_bno=" + mc_bno;
 }
 
 function deleteMatching(mc_bno) {

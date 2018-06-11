@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="MemberDAOTest" project="koing" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="koing.kosta180.controller.MemberDAOTest" time="0.173">
-    <testcase name="testTime" classname="koing.kosta180.controller.MemberDAOTest" time="0.173"/>
-  </testsuite>
-</testrun>

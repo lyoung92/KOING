@@ -3,9 +3,11 @@ package koing.kosta180.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -23,7 +25,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import koing.kosta180.domain.MemberVO;
 import koing.kosta180.domain.StoreVO;
+import koing.kosta180.service.CommentService;
 import koing.kosta180.service.StoreService;
 import koing.kosta180.util.MediaUtils;
 import koing.kosta180.util.UploadFileUtils;
@@ -35,6 +39,8 @@ public class StoreController {
 	
 	@Inject
 	private StoreService service;
+	@Inject
+	private CommentService cService;
 	
 	@RequestMapping(value="/insertStore", method=RequestMethod.GET)
 	public void insertStoreGET(StoreVO store, Model model)throws Exception{
@@ -63,9 +69,14 @@ public class StoreController {
 	}
 	
 	@RequestMapping(value="/detailStore", method=RequestMethod.GET)
-	public void detailStore(@RequestParam("s_no")String s_no, Model model)throws Exception{
+	public void detailStore(@RequestParam("s_no")String s_no, Model model, HttpSession session)throws Exception{
 		System.out.println("controller detail 진입");
+		MemberVO member = (MemberVO)session.getAttribute("sessionMember");
+		HashMap<String, String> map = new HashMap<String,String>();
+		map.put("id",member.getId());
+		map.put("s_no", s_no);
 		model.addAttribute("store", service.detailStore(s_no));
+		model.addAttribute("reserveList",cService.reseerveStore(map));
 	}
 	
 	@Resource(name="uploadPath")

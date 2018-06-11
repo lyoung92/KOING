@@ -9,7 +9,7 @@
 <body>
 <script src="resources/js/ticket.js" type="text/javascript"></script>
 	<form action="updateTicket" method="post">
-		<input type="hidden" name="t_sno" value="${ticket.t_sno}">
+		<input type="hidden" name="t_sno" value="${ticket.t_bno}">
 		<input type="hidden" name="s_no" value="${ticket.s_no}">
 		<h3>티켓 수정</h3>
 		<ul class="list">

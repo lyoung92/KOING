@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import koing.kosta180.domain.CommentVO;
 import koing.kosta180.domain.Criteria;
+import koing.kosta180.domain.ReservationVO;
 
 @Repository
 public class CommentDaoImpl implements CommentDao {
@@ -61,5 +62,13 @@ public class CommentDaoImpl implements CommentDao {
 	public int count(String s_no) throws Exception {
 		return session.selectOne(namespace + ".count", s_no);
 	}
+
+	@Override
+	public List<ReservationVO> reseerveStore(HashMap<String, String> map) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".reseerveStore",map);
+	}
+	
+	
 
 }

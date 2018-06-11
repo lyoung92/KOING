@@ -136,11 +136,10 @@ public class MemberController {
 	}
 	
 	//로그아웃 요청
-	@RequestMapping(value = "/logoutAction", method = RequestMethod.POST)
-	public String logoutAction(Model model,@RequestParam("path") String path ,HttpSession session) throws Exception {
-		logger.info("path : " + path);
+	@RequestMapping(value = "/logoutAction", method = RequestMethod.GET)
+	public String logoutAction(Model model ,HttpSession session) throws Exception {
 		session.invalidate();
-		return "redirect:" + path;
+		return "redirect: /main/main";
 	}
 	
 	//회원정보 수정 폼 이동 요청

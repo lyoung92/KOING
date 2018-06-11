@@ -525,12 +525,18 @@ ul li {
 	 Footer
 -------------------------------------------------------------------------------*/
 .footer {
-	width: 100%;
+	/* width: 100%;
 	margin: auto;
 	text-align: left;
 	padding-top: 5%;
 	
-	position: relative;
+	position: relative; */
+	width: 100%;
+    margin: auto;
+    text-align: left;
+    padding-top: 5%;
+    position: inherit;
+    height: 0px;
 }
 .footer h4 {
 	font-size: 13px;

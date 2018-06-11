@@ -1,9 +1,0 @@
-package koing.kosta180.persistence;
-
-import java.util.List;
-
-public interface RecommendDAO {
-	public String getTime();
-	public List<String> mostLikeStoreList();
-	
-}

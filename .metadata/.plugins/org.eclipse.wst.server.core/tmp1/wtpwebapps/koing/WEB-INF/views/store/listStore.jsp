@@ -28,18 +28,7 @@
 <body>
 <jsp:include page="../layout/header.jsp"/>
 <!-- Banner Section -->
-   <div id="banner" class="image "
-      style="background-image: url(http://c1.poing.co.kr/original/images/restaurant/kind.png)">
-      <div class="title_wrap">
-         <div class="title">
-            포잉 다이닝 티켓을 통해 최고의 레스토랑들을<br>합리적인 가격에 만나보세요.
-         </div>
-      </div>
-      <div class="line">
-         <hr>
-      </div>
-      <div class="subtitle">Curated by Koing</div>
-   </div>
+ <jsp:include page="../main/ticketmain.jsp" />
 
    <div class="container" style="width: 750px;">
    <c:choose>

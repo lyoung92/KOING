@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <%@page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -15,38 +15,32 @@
 
 </head>
 <body>
-   <!-- Banner Section -->
-   <a href = "../ticket/listAllTicket">
-   <div id="banner" class="image "
-      style="background-image: url(http://c1.poing.co.kr/original/images/product/banner.png)">
-      <div class="title_wrap">
-      
-         <div class="title">
-            포잉 다이닝 티켓을 통해 최고의 레스토랑들을<br>합리적인 가격에 만나보세요.
-         </div>
-      </div>
-      <div class="line">
-         <hr>
-      </div>
-      <div class="subtitle">Curated by Koing</div>
-   </div>
-   </a>
+	
 
-   <!-- Ticket list Section -->
-   <div id="content_wrap">
-      <div class="section1">
-         
-      </div>
-      
-   </div>
+	<div id="banner" class="image" href="../matching/listAllTicket">
+		<img alt="" src="../images/slider/coupons.jpg"
+			style="width: 100%; height: 100%; opacity: 0.4; filter: alpha(opacity = 40);">
+		<div class="wrap">
+			<div
+				style="position: absolute; bottom: 0; width: 100%; margin-bottom: 10%; color: #b91b39; font-size: 22px; line-height: 31px; text-align: center; font-weight: 1000;">
+				<a href="../ticket/listAllTicket">코잉 다이닝 티켓을 통해 최고의 레스토랑들을<br>합리적인 가격에 만나보세요.</a>
+			</div>
+		</div>
+	</div>
 
-   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-   <script
-      src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-   <script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script>
-   <!-- ie10-viewport-bug-workaround.js -->
-   <script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script>
-   <!-- holder.js -->
-<%--    <jsp:include page="../layout/footer.jsp" /> --%>
+	<!-- Ticket list Section -->
+	<div id="content_wrap">
+		<div class="section1"></div>
+
+	</div>
+
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script>
+	<!-- ie10-viewport-bug-workaround.js -->
+	<script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script>
+	<!-- holder.js -->
+	<%--    <jsp:include page="../layout/footer.jsp" /> --%>
 </body>
 </html>

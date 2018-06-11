@@ -52,7 +52,7 @@ filter: alpha(opacity=40);
 					<c:when test="${i.index==0}">
 						<div class="item active">		
 							<img src="../images/store/${list.s_no}/${list.s_no}-1.jpg" alt="Chania">
-							<div class="carousel-caption">
+							<div class="carousel-caption" onclick="location.href='../store/detailStore?s_no=${list.s_no}';">
 								<h3>${list.s_name}</h3>
 								<p>${list.s_contents}</p>
 							</div>
@@ -61,7 +61,7 @@ filter: alpha(opacity=40);
 					<c:otherwise>
 						<div class="item">		
 							<img src="../images/store/${list.s_no}/${list.s_no}-1.jpg" alt="Chania">
-							<div class="carousel-caption">
+							<div class="carousel-caption" onclick="location.href='../store/detailStore?s_no=${list.s_no}';">
 								<h3>${list.s_name}</h3>
 								<p>${list.s_contents}</p>
 							</div>
@@ -214,12 +214,14 @@ filter: alpha(opacity=40);
 	<!-- portfolio grid section -->
 	
 	
-	<jsp:include page="ticketmain.jsp" />
+	<%-- <jsp:include page="../main/ticketmain.jsp" /> --%>
+	 <jsp:include page="../main/matchingmain.jsp" />
 	
 	
 	
 	
-	<!-- Testimonials section -->
+<!-- Testimonials section -->
+	<!-- 
 	<section id="testimonials" class="section testimonials no-padding">
 	<div class="container-fluid">
 		<div class="row no-gutter">
@@ -284,8 +286,8 @@ filter: alpha(opacity=40);
 		</div>
 	</div>
 	</section>
-	<!-- Testimonials section -->
-
+	Testimonials section
+ -->
 	<jsp:include page="../layout/footer.jsp" />
 
 	<!-- JS FILES -->

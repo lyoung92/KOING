@@ -4864,7 +4864,7 @@ div#header {
 #content_wrap {
 	position: relative;
 	width: 970px;
-	margin: 20px auto 150px
+	margin: 20px auto 50px;
 }
 
 #content {

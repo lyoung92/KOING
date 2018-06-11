@@ -4,16 +4,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript"
-	src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../css/flexslider.css">
+<link rel="stylesheet" href="../css/mypage.css">
+
 <script src="../js/matching.js" type="text/javascript"></script>
-
 <script type="text/javascript">
-
 
 function fn_payment() {
     /*  location.href = "payment.jsp"; */
@@ -52,57 +51,78 @@ function fn_payment() {
 </script>
 </head>
 <body>
-
-	<div class="row">
-		<h1>${matching.mc_title}</h1>
-	</div>
-
-	<div class="row">
-		<h3>작성자: ${matching.id}</h3>
-	</div>
-
-	<div class="row">
-		<h3>장소 : ${matching.s_name}</h3>
-	</div>
-
-	<div class="row">
-		<h3>소개글</h3>
-		<h3>${matching.mc_contents}</h3>
-	</div>
-
-	<div class="row">
-		<h3>참가비 : ${matching.mc_entryfee}</h3>
-	</div>
-
-	<div class="row">
-		<h3>날짜 : ${matching.mc_date}</h3>
-		<h3>시간 : ${matching.mc_time}</h3>
-	</div>
-
-	<div class="row">
-		<h3>참여인원 : ${matching.mc_applicantnum}/${matching.mc_totalnum}</h3>
-	</div>
-	<c:if test="${matching.mc_totalnum == matching.mc_applicantnum}">
-		<div class="row">
-			<h3>매칭완료</h3>
+	<jsp:include page="../layout/header.jsp" />
+	<!-- Banner Section -->
+	<div id="banner" class="image "
+		style="background-image: url(http://c1.poing.co.kr/original/images/restaurant/kind.png)">
+		<div class="title_wrap">
+			<div class="title">
+				포잉 다이닝 티켓을 통해 최고의 레스토랑들을<br>합리적인 가격에 만나보세요.
+			</div>
 		</div>
-	</c:if>
-	<c:if test="${matching.mc_totalnum != matching.mc_applicantnum}">
-		<div class="row">
-			<h3>${matching.mc_status}</h3>
+		<div class="line">
+			<hr>
 		</div>
-	</c:if>
-	<button class="btn btn-primary btn-lg btn-block" onclick="fn_payment()">결제</button>
+		<div class="subtitle">Curated by Koing</div>
+	</div>
+	<!-- End Banner Section -->
 
-	<c:if test="${matching.mc_totalnum == matching.mc_applicantnum}">
-		<button class="btn btn-primary btn-lg btn-block"
-			onclick="cancelMatching('${matching.mc_bno}')">취소하기</button>
-	</c:if>
-	<c:if test="${matching.mc_totalnum != matching.mc_applicantnum}">
-		<button class="btn btn-primary btn-lg btn-block"
-			onclick="applyMatching('${matching.mc_bno}')">참여하기</button>
-	</c:if>
-
+	<div class="container">
+		<h2>${matching.mc_title}</h2>
+		<table class="table table-view">
+			<colgroup>
+				<col width="7%">
+				<!-- 글 번호 -->
+				<col width="*">
+				<!--  제목   -->
+				<col width="10%">
+				<!-- 작성자 -->
+				<col width="10%">
+				<!-- 작성일 -->
+				<col width="7%">
+				<!-- 조회수 -->
+			</colgroup>
+			<thead>
+				<tr>
+					<th class="subject">${matching.mc_title}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="infocell"><b>작성자 </b>${matching.id}</td>
+				</tr>
+				<tr>
+					<td class="contents">장소 : ${matching.s_name}<br> 초대글 :
+						${matching.mc_contents}<br> 참가비 : ${matching.mc_entryfee}<br>
+						날짜 : ${matching.mc_date}<br> 시간 : ${matching.mc_time}<br>
+						참여현황 : ${matching.mc_applicantnum} / ${matching.mc_totalnum} 명
+						<p class="card-text">
+							<c:if test="${matching.mc_totalnum == matching.mc_applicantnum}">
+								<div class="row">
+									<h4>매칭완료</h4>
+								</div>
+							</c:if>
+							<c:if test="${matching.mc_totalnum != matching.mc_applicantnum}">
+								<div class="row">
+									<h4>${matching.mc_status}</h4>
+								</div>
+							</c:if>
+						</p>
+						<button class="btn btn-primary btn-lg btn-block"
+							onclick="fn_payment()">결제</button> <c:if
+							test="${matching.mc_totalnum == matching.mc_applicantnum}">
+							<button class="btn btn-primary btn-lg btn-block"
+								onclick="cancelMatching('${matching.mc_bno}')">취소하기</button>
+						</c:if> <c:if test="${matching.mc_totalnum != matching.mc_applicantnum}">
+							<button class="btn btn-primary btn-lg btn-block"
+								onclick="applyMatching('${matching.mc_bno}')">참여하기</button>
+						</c:if>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<jsp:include page="../layout/footer.jsp" />
 </body>
 </html>
 

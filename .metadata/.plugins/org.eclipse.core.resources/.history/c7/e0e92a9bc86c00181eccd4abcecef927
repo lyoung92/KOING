@@ -1,0 +1,16 @@
+package koing.kosta180.domain;
+
+import java.sql.Timestamp;
+
+public class ReservationVO {
+	private String r_no;
+	private String id;
+	private String r_date;
+	private String r_time;
+	private String r_person;
+	private String r_request;
+	private String r_reqTime;
+	private String r_pay;
+	private String s_no;
+	private String r_status;
+}

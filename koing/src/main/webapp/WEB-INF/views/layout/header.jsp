@@ -14,7 +14,8 @@
 <link rel="stylesheet" href="../css/flexslider.css">
 <link rel="stylesheet" href="../css/responsive.css">
 <link rel="stylesheet" href="../css/animate.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <!-- 상단 고정 스크립트 -->
 <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -103,17 +104,16 @@
 							${sessionMember.m_name }님</button>
 						<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 							<a class="dropdown-item" href="../join/updateMember">회원정보</a> <a
-								class="dropdown-item" href="#">예약관리</a> <a class="dropdown-item"
-								href="#">쿠폰관리</a>
+								class="dropdown-item" href="../matching/listMyMatching">매칭</a> <a
+								class="dropdown-item" href="../ticket/listMemberTicket">쿠폰관리</a>
+							<c:if test="${sessionMember.m_grade eq '기업회원' }">
+								<a class="dropdown-item" href="../store/insertStore">상점관리</a>
+							</c:if>
 						</div>
 					</li>
-
-
 					<li>
-						<form role="form" method="post" action="../join/logoutAction">
-							<input type="hidden" name="path" id="path" />
-							<button type="submit" class="btn" onclick="">로그아웃</button>
-						</form>
+						<button type="submit" class="btn"
+							onclick="location.href = '../join/logoutAction' ">로그아웃</button>
 					</li>
 				</c:when>
 				<c:otherwise>

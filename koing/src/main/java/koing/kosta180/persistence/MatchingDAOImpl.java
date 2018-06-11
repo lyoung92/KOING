@@ -11,6 +11,7 @@ import koing.kosta180.domain.CategoryScoreVO;
 import koing.kosta180.domain.MatchingMemberVO;
 import koing.kosta180.domain.MatchingResVO;
 import koing.kosta180.domain.MatchingVO;
+import koing.kosta180.domain.StoreVO;
 
 @Repository
 public class MatchingDAOImpl implements MatchingDAO {
@@ -117,6 +118,7 @@ public class MatchingDAOImpl implements MatchingDAO {
 
 	@Override
 	public List<CategoryScoreVO> getMcCategory(String s_no) throws Exception {
+		System.out.println(s_no);
 		return session.selectList(namespace + ".getMcCategory", s_no);
 	}
 
@@ -129,6 +131,29 @@ public class MatchingDAOImpl implements MatchingDAO {
 	public List<MatchingVO> listCateMatching(String s_no) throws Exception {
 		return session.selectList(namespace + ".listCateMatching", s_no);
 	}
+
+	@Override
+	public String getId(String mc_bno) throws Exception {
+		return session.selectOne(namespace + ".getId", mc_bno);
+	}
+
+	@Override
+	public MatchingVO Matchinginfo(String mc_bno) throws Exception {
+		return session.selectOne(namespace + ".Matchinginfo", mc_bno);
+	}
+
+	@Override
+	public List<StoreVO> allStoreList() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectList(namespace+".allStoreList");
+	}
+
+	@Override
+	public String getStoreName(String s_no) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".getStoreName",s_no);
+	}
+	
 	
 	
 }

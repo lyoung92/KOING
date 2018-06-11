@@ -1,5 +1,7 @@
 package koing.kosta180.domain;
 
+import java.sql.Timestamp;
+
 public class TicketVO {
 	private String t_bno;
 	private String t_contents;
@@ -9,9 +11,9 @@ public class TicketVO {
 	private int t_fixedprice;
 	private int t_effectivelife;
 	private String i_no;
-	private int i_valid;
+	private String i_valid;
 	private String com_contents;
-	
+	private Timestamp com_date;
 	private String id;
 	
 	public String getT_bno() {
@@ -62,14 +64,15 @@ public class TicketVO {
 	public void setI_no(String i_no) {
 		this.i_no = i_no;
 	}
-	public int getI_valid() {
-		return i_valid;
-	}
-	public void setI_valid(int i_valid) {
-		this.i_valid = i_valid;
-	}
+
 	public String getCom_contents() {
 		return com_contents;
+	}
+	public String getI_valid() {
+		return i_valid;
+	}
+	public void setI_valid(String i_valid) {
+		this.i_valid = i_valid;
 	}
 	public void setCom_contents(String com_contents) {
 		this.com_contents = com_contents;
@@ -80,11 +83,20 @@ public class TicketVO {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	public Timestamp getCom_date() {
+		return com_date;
+	}
+	public void setCom_date(Timestamp com_date) {
+		this.com_date = com_date;
+	}
+	
 	@Override
 	public String toString() {
 		return "TicketVO [t_bno=" + t_bno + ", t_contents=" + t_contents + ", s_no=" + s_no + ", t_cost=" + t_cost
 				+ ", t_discount=" + t_discount + ", t_fixedprice=" + t_fixedprice + ", t_effectivelife="
-				+ t_effectivelife + ", i_no=" + i_no + ", i_valid=" + i_valid + ", com_contents=" + com_contents + "]";
+				+ t_effectivelife + ", i_no=" + i_no + ", i_valid=" + i_valid + ", com_contents=" + com_contents
+				+ ", com_date=" + com_date + ", id=" + id + "]";
 	}
 }
 

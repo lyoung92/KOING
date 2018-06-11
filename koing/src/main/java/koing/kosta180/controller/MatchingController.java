@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,40 +28,43 @@ public class MatchingController {
 	private MatchingService service;
 	
 	@RequestMapping(value = "insertMatching", method = RequestMethod.GET)
-	public void insertMatching(MatchingVO matching, Model model) throws Exception {
+	public void insertMatching(Model model) throws Exception {
+		model.addAttribute("storeList",service.allStoreList());
 	}
 	
 	@RequestMapping(value = "insertMatching", method = RequestMethod.POST)
-	public void insertMatching(MatchingVO matching, HttpServletRequest request) throws Exception {
-		matching.setMc_title(request.getParameter("mc_title"));
-		matching.setMc_contents(request.getParameter("mc_contents"));
-		matching.setMc_entryfee(request.getParameter("mc_entryfee"));
-		matching.setMc_date(request.getParameter("mc_date"));
-		matching.setMc_time(request.getParameter("mc_time"));
-		matching.setMc_totalnum(Integer.parseInt(request.getParameter("mc_totalnum")));
-		service.insertMatching(matching);
+	public String insertMatching(MatchingVO matching, HttpServletRequest request,HttpSession session) throws Exception {
+		MemberVO member = (MemberVO)session.getAttribute("sessionMember");
+		
+		matching.setId(member.getId());
+		String s_no = request.getParameter("s_no");
+		System.out.println(s_no+" , "+matching.toString());
+		
+		service.insertMatching(matching, s_no);
+		
+		return "redirect: /matching/listAllMatching";
 	}
 	
 	@RequestMapping(value = "/readMatching", method = RequestMethod.GET)
 	public String readMatching(@RequestParam("mc_bno") String mc_bno, Model model, HttpServletRequest request)
 			throws Exception {
 		MatchingVO matching = service.readMatching(mc_bno);
-
+		System.out.println(matching.toString());
 		model.addAttribute("matching", matching);
 
 		return "/matching/detailMatching";
 	}
 
-	@RequestMapping(value = "next", method = RequestMethod.GET)
+	@RequestMapping(value = "updateMatching", method = RequestMethod.GET)
 	public String next(MatchingVO matching, Model model, HttpServletRequest request) throws Exception {
+		String mc_bno = request.getParameter("mc_bno");
+		matching.setMc_bno(mc_bno);
 
-		matching.setMc_bno(request.getParameter("mc_bno"));
-
-		model.addAttribute("matching", matching);
-
+		model.addAttribute("matching", service.readMatching(mc_bno));
+		
 		return "/matching/updateMatching";
 	}
-
+	
 	@RequestMapping(value = "updateMatching", method = RequestMethod.POST)
 	public void updateMatching(MatchingVO matching, Model model, HttpServletRequest request) throws Exception {
 		matching.setMc_title(request.getParameter("mc_title"));
@@ -70,7 +74,6 @@ public class MatchingController {
 		matching.setMc_entryfee(request.getParameter("mc_entryfee"));
 		matching.setMc_date(request.getParameter("mc_date"));
 		matching.setMc_time(request.getParameter("mc_time"));
-		matching.setMc_totalnum(Integer.parseInt(request.getParameter("mc_totalnum")));
 		System.out.println(matching.toString());
 		service.updateMatching(matching);
 	}
@@ -84,43 +87,49 @@ public class MatchingController {
 	@RequestMapping(value = "listAllMatching", method = RequestMethod.GET)
 	public String listAllMatching(MatchingVO matching, Model model, HttpServletRequest request) throws Exception {
 		List<MatchingVO> matchingList = service.listAllMatching();
-		/*
-		 * System.out.println(matchingList.get(0));
-		 * System.out.println(matchingList.get(1));
-		 */
-
 		model.addAttribute("allMatchingList", matchingList);
 
 		return "/matching/listAllMatching";
 	}
 
 	@RequestMapping(value = "listMyMatching", method = RequestMethod.GET)
-	public String listMyMatching(Model model, HttpServletRequest request) throws Exception {
+	public String listMyMatching(Model model, HttpServletRequest request, HttpSession session) throws Exception {
 
-		/* String id = request.getParameter("id"); */
-		/*MatchingResVO matchingRes = service.reserveinfo("1");
-		model.addAttribute("matchingRes", matchingRes);*/
-		List<MatchingVO> matchingList = service.listMyMatching("kko9");
+		MemberVO member = (MemberVO)session.getAttribute("sessionMember");
+		MatchingResVO matchingRes = service.reserveinfo("1");
+		model.addAttribute("matchingRes", matchingRes);
+		List<MatchingVO> matchingList = service.listMyMatching(member.getId());
+		for(int i =0; i<matchingList.size(); i++){
+		System.out.println(matchingList.get(i));
+		}
 		model.addAttribute("myMatchingList", matchingList);
 
 		return "/matching/listMyMatching";
 	}
 
 	@RequestMapping(value = "applyMatching", method = RequestMethod.GET)
-	public String applyMatching(MatchingMemberVO mm, HttpServletRequest request) throws Exception {
+	public String applyMatching(MatchingMemberVO mm,MemberVO vo, HttpServletRequest request, HttpSession session) throws Exception {
+		MemberVO member = (MemberVO) session.getAttribute("sessionMember");
 		mm.setMc_bno(request.getParameter("mc_bno"));
-		mm.setId("hanna");
+		mm.setId(member.getId());
 		String mc_bno = request.getParameter("mc_bno");
 		service.applyMatching(mm);
 		service.countPlus(mc_bno);
-
+		String id = service.getId(mc_bno);
+		vo.setM_email(service.getMail(id));
+		String m_email = vo.getM_email();
+		MatchingVO matching = service.Matchinginfo(mc_bno);
+		if(matching.getMc_totalnum() == matching.getMc_applicantnum()){
+			service.sendMail(m_email);
+		}
 		return "redirect:/matching/readMatching?mc_bno=" + mc_bno;
 	}
 
 	@RequestMapping(value = "cancelMatching", method = RequestMethod.GET)
-	public String cancelMatching(MatchingMemberVO mm, HttpServletRequest request) throws Exception {
+	public String cancelMatching(MatchingMemberVO mm, HttpServletRequest request, HttpSession session) throws Exception {
+		MemberVO member = (MemberVO) session.getAttribute("sessionMember");
 		mm.setMc_bno(request.getParameter("mc_bno"));
-		mm.setId("hanna");
+		mm.setId(member.getId());
 		String mc_bno = request.getParameter("mc_bno");
 		service.cancelMatching(mc_bno);
 		service.countMinus(mc_bno);
@@ -161,18 +170,22 @@ public class MatchingController {
 	}
 
 	@RequestMapping(value = "sendMail", method = RequestMethod.GET)
-	public void sendMail(MemberVO vo, Model model, HttpServletRequest request) throws Exception {
-		String id = request.getParameter("id");
+	public String sendMail(MemberVO vo, Model model, HttpServletRequest request) throws Exception {
+		String mc_bno = request.getParameter("mc_bno");
+		String id = service.getId(mc_bno);
 		vo.setM_email(service.getMail(id));
 		String m_email = vo.getM_email();
+		System.out.println(m_email);
 		System.out.println("sendMail.......");
 		service.sendMail(m_email);
+		
+		return "matching/readMatching?mc_bno=" + mc_bno;
 	}
 
 	@RequestMapping(value = "listCategoryMatching", method = RequestMethod.GET)
-	public String listCategoryMatching(MatchingVO matching,CategoryScoreVO category,Model model, HttpServletRequest request) throws Exception {
-		 
-		List<CategoryScoreVO> categoryList = service.getMemberCategory("hanna");
+	public String listCategoryMatching(MatchingVO matching,CategoryScoreVO category,Model model, HttpServletRequest request, HttpSession session) throws Exception {
+		 MemberVO member = (MemberVO) session.getAttribute("sessionMember");
+		List<CategoryScoreVO> categoryList = service.getMemberCategory(member.getId());
 		List<String> catesno = service.categorysno();
 		List<MatchingVO> mc = new ArrayList<>();
 

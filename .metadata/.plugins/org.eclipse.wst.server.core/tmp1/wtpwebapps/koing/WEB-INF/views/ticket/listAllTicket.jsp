@@ -9,9 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="../layout/header.jsp" />
 	<div class="body">
 		<c:choose>
-			<c:when test="${allTicketList == null }">
+			<c:when test="${empty allTicketList}">
 				티켓이 존재하지 않습니다.
             </c:when>
 			<c:otherwise>
@@ -44,5 +45,6 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+	<jsp:include page="../layout/footer.jsp" />
 </body>
 </html>

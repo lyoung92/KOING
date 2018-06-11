@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 <!-- jQuery 2.1.4 -->
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/bootstrap.css">
 <link rel="stylesheet" href="../css/flexslider.css">
 <link rel="stylesheet" href="../css/mypage.css">
 
@@ -18,40 +18,41 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
-.fileDrop {
-	width: 80%;
-	height: 100px;
-	border: 1px dotted gray;
-	background-color: lightslategray;
-	margin: auto;
+form.form{
+width: 80%;
+margin-left: 10%;
+margin-right: auto;
 }
+
 </style>
+
+<script type="text/javascript">
+
+function checkValue()
+{
+    var form = document.form;
+    
+    if(!form.mc_title.value){
+        alert("제목을 입력하세요.");
+        return false;
+    }
+}
+
+</script>
 </head>
 
 <body class="br-light">
 	<jsp:include page="../layout/header.jsp" />
-	<!-- Banner Section -->
-	<div id="banner" class="image "
-		style="background-image: url(http://c1.poing.co.kr/original/images/restaurant/kind.png)">
-		<div class="title_wrap">
-			<div class="title">
-				포잉 다이닝 티켓을 통해 최고의 레스토랑들을<br>합리적인 가격에 만나보세요.
-			</div>
-		</div>
-		<div class="line">
-			<hr>
-		</div>
-		<div class="subtitle">Curated by Koing</div>
-	</div>
-	<!-- End Banner Section -->
-	<div class="container-diy">
+	<jsp:include page="../main/ticketmain.jsp" />
 
-		<h3>매칭글 등록</h3>
-		<form action="insertMatching" method="post">
+	<div class="container-diy">
+		<form class="form" action="insertMatching" method="post" onsubmit="return checkValue()">
+			<h3>매칭글 등록</h3>
+
 			<table class="table table-bordered">
 				<tr>
 					<th>제목</th>
-					<td><input type="text" id="mc_title" name="mc_title"
+					<td><input type="text"  id="mc_title" name="mc_title"
 						placeholder="제목을 입력하세요."></td>
 				</tr>
 
@@ -63,8 +64,16 @@
 
 				<tr>
 					<th>장소</th>
-					<td><input type="text" id="s_name" name="s_name"
-						placeholder="매장 이름을 입력하세요."></td>
+					<td>
+						<!-- <input type="text" id="s_name" name="s_name"
+						placeholder="매장 이름을 입력하세요."> --> <select name="s_no" id="s_no">
+							<option value="">매장선택</option>
+							<c:forEach var="list" items="${storeList}">
+								<option value="${list.s_no}">${list.s_name}
+									(${list.s_address})</option>
+							</c:forEach>
+					</select>
+					</td>
 				</tr>
 
 				<tr>
@@ -81,8 +90,21 @@
 
 				<tr>
 					<th>모임 시간</th>
-					<td><input type="text" id="mc_time" name="mc_time"
-						placeholder="오전 11:00"></td>
+
+					<td><select name="mc_time" id="mc_time">
+							<option value="09:00">09:00</option>
+							<option value="10:00">10:00</option>
+							<option value="11:00">11:00</option>
+							<option value="12:00">12:00</option>
+							<option value="13:00">13:00</option>
+							<option value="14:00">14:00</option>
+							<option value="15:00">15:00</option>
+							<option value="16:00">16:00</option>
+							<option value="17:00">17:00</option>
+							<option value="18:00">18:00</option>
+							<option value="19:00">19:00</option>
+							<option value="20:00">20:00</option>
+					</select></td>
 				</tr>
 
 				<tr>
@@ -93,7 +115,7 @@
 
 				<tr>
 					<td colspan="2">
-						<button type="button" class="btn btn-primary btn-sm pull-right">취소</button>
+						<button type="button" class="btn btn-primary btn-sm pull-right" onclick="history.back(-1)">취소</button>
 						<button type="submit" class="btn btn-primary btn-sm pull-right"
 							style="margin-right: 10px;">등록</button>
 					</td>

@@ -30,26 +30,42 @@
 		<div class="subtitle">Curated by Koing</div>
 	</div>
 	<!-- End Banner Section -->
-	
+
 	<div class="container" style="width: 750px;">
 		<c:choose>
-			<c:when test="${category == null}">
-				<h2>카테고리별 리스트</h2>
+			<c:when test="${empty category}">
+				<h2>카테고리 매칭 리스트</h2>
 				게시글이 없습니다.
             </c:when>
 			<c:otherwise>
-				<h2>카테고리별 매칭 리스트</h2>
-				<c:forEach var="category" items="${category}">
+				<h2>카테고리 매칭 리스트</h2>
+				<table class="storelist table table-hover">
+					<thead>
+						<tr>
+							<th></th>
+							<th>장소</th>
+							<th>제목</th>
+							<th>글쓴이</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
 
-					<div class="list-group">
-						<a href="readMatching?mc_bno=${category.mc_bno}"
-							class="list-group-item disabled"> ${category.mc_bno}
-							${category.mc_title} </a>
-					</div>
-
-				</c:forEach>
+					<tbody>
+						<c:forEach var="category" items="${category}">
+							<tr>
+								<td>${category.mc_bno}</td>
+								<td>${category.s_name}</td>
+								<td><a href="readMatching?mc_bno=${category.mc_bno}">${category.mc_title}</a></td>
+								<td>${category.id}</td>
+							</tr>
+						</c:forEach>
+						</table>
+				</tbody>
 			</c:otherwise>
 		</c:choose>
 	</div>
+	<jsp:include page="../layout/footer.jsp" />
 </body>
 </html>
